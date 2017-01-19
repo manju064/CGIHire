@@ -1,0 +1,45 @@
+{
+  "name": "build",
+  "homepage": "https://gitlab.com/waseemraza/CGIRecruitmentTool",
+  "authors": [
+    "Manju<manjunath.keshava@cgi.com>",
+    "Mohammad<m.raza@cgi.com>"
+  ],
+  "description": "CGIRecruitmentToolUI",
+  "main": "client",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../client/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "~2.7.1",
+    "jquery": "~3.1.1",
+    "requirejs": "^2.3.2",
+    "angular": "~1.6.1",
+    "angular-cookies": "^1.6.1",
+    "angular-ui-router": "~0.2.18",
+    "angular-animate": "^1.6.1",
+    "messageformat": "~0.3.1",
+    "angular-translate": "^2.13.0",
+    "angular-translate-handler-log": "^2.13.0",
+    "angular-translate-interpolation-messageformat": "^2.13.0",
+    "angular-translate-loader-partial": "^2.13.0",
+    "angular-translate-loader-static-files": "^2.13.0",
+    "angular-sanitize": "^1.6.1",
+    "ui-router-extras": "^0.1.3",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-i18n": "^1.6.1",
+    "angular-bootstrap": "^2.4.0",
+    "bootstrap-ui-datetime-picker":"~2.4.3"
+  },
+  "resolutions": {
+    "angular": "~1.6.1",
+    "angular-cookies": "~1.6.1",
+    "angular-bootstrap": "^2.4.0"
+  }
+}

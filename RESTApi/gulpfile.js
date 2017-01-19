@@ -6,11 +6,11 @@ gulp.task('default', function(){
         script:'app.js',
         ext:'js',
         env:{
-            PORT:8000
+            PORT:8081
         },
         ignore:['./node_modules/**']
     })
     .on('restart', function(){
-            console.log("Restarting..");
+            console.log("Restarting api..");
     })
 });

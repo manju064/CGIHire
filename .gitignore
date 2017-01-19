@@ -5,4 +5,5 @@ dist
 .sass-cache
 bower_components
 client/vendor
+vendor
 .vscode

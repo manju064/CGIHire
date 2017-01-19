@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-5">
+        <div class="row">
+            <h4>Resgistered Candidates</h4>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="candidate in candidates" 
+                ng-click="GetCandidateDetails(candidate.candidateId)"
+                ng-class-odd="'odd'" ng-class-even="'even'">
+                <span> {{candidate.candidateId + ", " + candidate.firstName + " " + candidate.lastName  }} </span>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-7" ng-show="isSelectedCandidate">
+        <form name="regForm">
+            <fieldset disabled="true">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="firstName" class="control-label" translate="First_Name"></label> <input type="text" placeholder="{{ 'First_Name_Hint' | translate }}"
+                            class="form-control" id="firstName" ng-model="selectedCandidate.firstName" ></input>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <label for="lastName" class="control-label" translate="Last_Name"></label>
+                        <input type="text" placeholder="{{ 'Last_Name_Hint' | translate }}" class="form-control" id="lastName" ng-model="selectedCandidate.lastName"
+                            ></input>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <label for="Gender" class="control-label" translate="Gender"></label>
+                        <input id="Gender" class="form-control" ng-model="selectedCandidate.gender" >
+                            </input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="phone" class="control-label" translate="Phone_Number"></label>
+                        <input type="text" placeholder="{{ 'Phone_Number_Hint' | translate }}" class="form-control" ng-model="selectedCandidate.phone" id="phone"
+                            ></input>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="email" class="control-label" translate="Email_Address"></label> <input type="text" placeholder="{{ 'Email_Address_Hint' | translate }}"
+                            class="form-control" ng-model="selectedCandidate.email" id="email" ></input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="qualification" class="control-label" translate="Study"></label>
+                        <input type="text" id="qualification" class="form-control" placeholder="{{ 'Study_Hint' | translate }}" ng-model="selectedCandidate.qualification"
+                             />
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="qualificationDate" class="control-label" translate="Graduation_Date"></label>
+                        <p class="input-group">
+                            <input type="text" id="qualificationDate" class="form-control"  ng-model="selectedCandidate.qualificationDate"
+                              />
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="linkedin" class="control-label" translate="LinkedIn_URL"></label> <input type="text" placeholder="{{ 'LinkedIn_URL_Hint' | translate }}"
+                        class="form-control" id="linkedin" ng-model="selectedCandidate.linkedInUrl" ></input>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="comment" translate="Comment"></label>
+                    <textarea placeholder="{{ 'Comment_Hint' | translate }}" rows="3" class="form-control" id="comment" ng-model="selectedCandidate.comment"
+                        ></textarea>
+                </div>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
