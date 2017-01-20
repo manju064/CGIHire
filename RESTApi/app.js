@@ -1,7 +1,8 @@
 var express = require('express'),
     mongoose = require('mongoose');
 
-var dbUrl = 'mongodb://localhost/recruitment';
+//var dbUrl = 'mongodb://ds117109.mlab.com:17109/recruitment';
+var dbUrl = 'mongodb://146.148.123.65/recruitment';
 
 var conn = mongoose.connect(dbUrl, {user: 'CGI', pwd: 'CGIEvents2017'},
                             function(err, db) {
@@ -14,8 +15,6 @@ var conn = mongoose.connect(dbUrl, {user: 'CGI', pwd: 'CGIEvents2017'},
                     });
 
 var Candidate = require('./models/candidateModel');
-
-//var Candidate = conn.model('Candidate', candidateSchema);
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -45,10 +44,11 @@ candidateRouter.route('/Candidates')
 
 app.use('/api', candidateRouter);
 
+app.use('/models', express.static(__dirname + '/models'));
+
 app.get('/', function(req, res){
     res.send('Candidae API Started');
 });
-
 
 app.listen(port, function(){
     console.log("Gulp is Running on PORT " + port);
