@@ -20,7 +20,7 @@ var prod = args.prod;
 //var bundle = 'bin/js/**/*.js';
 
 //Style elements path
-var sassFiles = 'client/app/assets/sass/*.scss';
+var sassFiles = 'public/client/app/assets/sass/*.scss';
 
 gulp.task("sass", function(){
 	log("Generate CSS files " + (new Date()).toString());
@@ -34,16 +34,17 @@ gulp.task("sass", function(){
 });
 
 gulp.task('default', ['sass'] , function(){
-     gulp.watch(sassFiles, ['sass']);
-	 nodemon({
+    gulp.watch(sassFiles, ['sass']);
+	nodemon({
         script:'app.js',
         ext:'js',
         env:{
-            PORT:8000
+            PORT:8081,
+			NODE_ENV:'production'
         },
-        ignore:['./node_modules/**','./client/vendor/**']
+        ignore:['./node_modules/**']
     })
     .on('restart', function(){
-            console.log("Restarting application..");
+            console.log("Restarting api..");
     })
 });
