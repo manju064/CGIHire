@@ -26,4 +26,4 @@ candidateModel.virtual('candidateId').get(function() {
 });
 */
 var collectionName = 'candidates'
-module.exports = mongoose.model('Candidates', candidateModel,collectionName);
+module.exports = mongoose.model('Candidate', candidateModel,collectionName);
