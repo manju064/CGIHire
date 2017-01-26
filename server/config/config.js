@@ -6,7 +6,7 @@ module.exports = {
     rootPath: rootPath,
     db:{
         user:"CGI",
-        pwd: "CGI",
+        pwd: "CGIEvents2017",
         url:'mongodb://ds117109.mlab.com:17109/recruitment',
     },
     port: process.env.PORT || 80

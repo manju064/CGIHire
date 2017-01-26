@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     args = require('yargs').argv;
 
 console.log(args);
-var prod = args.prod;
+var prod = args.prod? "production":"development";
 
 //java scripts path
 //TODO, create bundle for js files
@@ -40,7 +40,7 @@ gulp.task('default', ['sass'] , function(){
         ext:'js',
         env:{
             PORT:8081,
-			NODE_ENV:'production'
+			NODE_ENV: prod
         },
         ignore:['./node_modules/**']
     })
