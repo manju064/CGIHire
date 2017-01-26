@@ -17,7 +17,7 @@ module.exports = {
     db: {
         user:"CGI",
         pwd: "CGIEvents2017",
-        url:"mongodb://104.198.145.48/recruitment",
+        url:"mongodb://10.128.0.2/recruitment",
     },
     port: process.env.PORT || 80
   }
