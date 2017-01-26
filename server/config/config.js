@@ -3,14 +3,22 @@ var rootPath = path.normalize(__dirname + '/../../');
 
 module.exports = {
   development: {
-    db: 'mongodb://CGI:CGIEvents2017@ds117109.mlab.com:17109/recruitment',
     rootPath: rootPath,
+    db:{
+        user:"CGI",
+        pwd: "CGIEvents2017",
+        url:'mongodb://ds117109.mlab.com:17109/recruitment',
+    },
     port: process.env.PORT || 80
   },
   production: {
     rootPath: rootPath,
     //db: 'mongodb://CGI:CGIEvents2017@ds117109.mlab.com:17109/recruitment',
-    db: 'mongodb://root:WD5njgNZ@104.198.145.48/recruitment',
+    db: {
+        user:"root",
+        pwd: "WD5njgNZ",
+        url:"mongodb://104.198.145.48/recruitment",
+    },
     port: process.env.PORT || 80
   }
 }

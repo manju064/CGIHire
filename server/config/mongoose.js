@@ -3,11 +3,21 @@ var mongoose = require('mongoose'),
     
 
 module.exports = function(config) {
+  var conn = mongoose.connect(config.db.Url, {user: config.db.user, pwd: config.db.pwd},
+            function(err, db) {
+                if (err) {
+                    console.log('Unable to connect to the mongoDB server Err', err);
+                } else {
+                    //We are connected. :)
+                    console.log('Connection established to', dbUrl); 
+            }
+    });
+ /* var db = mongoose.connection;
   mongoose.connect(config.db);
-  var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error...'));
   db.once('open', function callback() {
     console.log('recruitment db opened');
   });
+  */
 };
 
