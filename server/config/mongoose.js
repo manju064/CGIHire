@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     
 
 module.exports = function(config) {
-  var conn = mongoose.connect(config.db.Url, {user: config.db.user, pwd: config.db.pwd},
+  var conn = mongoose.connect(config.db.url, {user: config.db.user, pwd: config.db.pwd},
             function(err, db) {
                 if (err) {
                     console.log('Unable to connect to the mongoDB server Err', err);
