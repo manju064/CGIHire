@@ -9,7 +9,7 @@ module.exports = {
   },
   production: {
     rootPath: rootPath,
-    db: 'mongodb://CGI:CGIEvents2017@ds117109.mongolab.com:17109/recruitment',
+    db: 'mongodb://localhost/recruitment',//mongodb://CGI:CGIEvents2017@ds117109.mongolab.com:17109/recruitment',
     port: process.env.PORT || 80
   }
 }

@@ -39,8 +39,8 @@ gulp.task('default', ['sass'] , function(){
         script:'app.js',
         ext:'js',
         env:{
-            PORT:8081,
-			NODE_ENV:'production'
+            PORT:8082,
+			NODE_ENV:'development'
         },
         ignore:['./node_modules/**']
     })
