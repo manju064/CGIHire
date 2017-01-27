@@ -19,6 +19,9 @@ module.exports = function(app, config) {
   app.engine('html', cons.swig)
   app.set('view engine', 'html');
 
+  app.use('port', process.env.PORT || config.port);
+  app.use('base url', process.env.URL || 'http://localhost');
+
   app.use(express.static(path.join(__dirname, '/../../public/client')));
   //app.use(express.static(__dirname + '/../../public'));
   app.use('/src', express.static(clientAppPath + '/app/src'));
