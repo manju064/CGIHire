@@ -1,7 +1,7 @@
 {
   "name": "cgi-recruitment-tool",
   "version": "1.0.0",
-  "description": "CGI Recruitment Tool. This package only used for build the application",
+  "description": "CGI Recruitment Tool. Application for CGI events recruitments for Netherlands",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,16 @@
   "keywords": [],
   "author": "Manjunath Keshava",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manju064/CGIRecruitment.git"
+  },
   "dependencies": {
+    "body-parser": "^1.16.0",
     "consolidate": "^0.14.5",
     "cookie-parser": "^1.1.0",
+    "express": "^4.14.0",
+    "express-session": "^1.2.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -24,21 +31,18 @@
     "gulp-ng-annotate": "^2.0.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-util": "^3.0.7",
     "gulp-wrapper": "^1.0.0",
-    "gulp-sass": "^3.1.0",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
-    "morgan": "^1.0.1",
-    "requirejs": "^2.3.2",
-    "yargs": "^6.4.0",
-    "body-parser": "^1.16.0",
-    "express": "^4.14.0",
-    "express-session": "^1.2.1",
     "mongodb": "^2.2.22",
     "mongodb-core": "^2.1.7",
     "mongoose": "^4.7.7",
+    "morgan": "^1.0.1",
+    "requirejs": "^2.3.2",
+    "yargs": "^6.4.0",
     "serve-favicon": "^2.3.2",
     "swig": "^1.4.2"
   }
