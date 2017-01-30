@@ -29,3 +29,7 @@ console.log('routes loaded ');
 
 app.listen(config.port);
 console.log('Listening on port ' + config.port + '...');
+
+process.on('uncaughtException', function(err) {
+  console.log(err);
+});
