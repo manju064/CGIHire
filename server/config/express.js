@@ -23,8 +23,8 @@ module.exports = function(app, config) {
 
   console.log('express view path config complete');
 
-  app.use('port', process.env.PORT || config.port);
-  app.use('base url', process.env.URL || 'http://localhost');
+  app.set('port', process.env.PORT || config.port);
+  app.set('base url', process.env.URL || 'http://localhost');
 
   console.log('express port and url config complete');
 
