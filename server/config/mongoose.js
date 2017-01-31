@@ -13,6 +13,7 @@ module.exports = function(config) {
                     console.log('Connection established to', config.db.url); 
             }
     });
+    
  /* var db = mongoose.connection;
   mongoose.connect(config.db);
   db.on('error', console.error.bind(console, 'connection error...'));
