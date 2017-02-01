@@ -7,7 +7,7 @@ module.exports = {
     db:{
         user: process.env.DB_USER || "CGI",
         pwd: process.env.DB_PWD || "CGIEvents2017",
-        url: process.env.DB_URL || 'mongodb://ds117109.mlab.com:17109/recruitment',
+        url: process.env.DB_URL || 'mongodb://CGI:CGIEvents2017@ds117109.mlab.com:17109/recruitment'
     },
     port: process.env.PORT || 8081
   },
@@ -17,7 +17,8 @@ module.exports = {
     db: {
         user: process.env.DB_USER || "CGI",
         pwd: process.env.DB_PWD || "CGIEvents2017",
-        url: process.env.DB_URL || "mongodb://ds056419.mlab.com:56419/cgirecruitmentevent",
+        url: process.env.DB_URL || 'mongodb://CGI:CGIEvents2017@ds117109.mlab.com:17109/recruitment'
+        // "mongodb://ds056419.mlab.com:56419/cgirecruitmentevent",
     },
     port: process.env.PORT || 80
   }
