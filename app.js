@@ -27,7 +27,7 @@ require('./server/config/routes')(app, config);
 
 console.log('routes loaded ');
 
-app.listen(config.port);
+//app.listen(config.port);
 console.log('Listening on port ' + config.port + '...');
 
 process.on('uncaughtException', function(err) {
