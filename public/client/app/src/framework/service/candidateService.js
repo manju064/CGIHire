@@ -13,11 +13,13 @@
         function () {
             var candidateService = function ($q, crudService) {
                 var deferred = $q.defer();
-                var baseUrl = process.env.API_URL + "/Candidates/";
+                //TODO, hardcoded for production
+                var baseUrl =  "https://cgirecruitment.azurewebsites.net/api/Candidates";
 
                 var serviceFactory = {
                     
                     getAll: function () {
+                        console.log(baseUrl);
                         return crudService.get(baseUrl).then(function (response) {
                             deferred.resolve(response);
                             return deferred.promise;
