@@ -13,7 +13,7 @@
         function () {
             var candidateService = function ($q, crudService) {
                 var deferred = $q.defer();
-                var baseUrl = "http://localhost:8081/api/Candidates/";
+                var baseUrl = process.env.API_URL + "/Candidates/";
 
                 var serviceFactory = {
                     
