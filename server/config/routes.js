@@ -4,8 +4,10 @@ var candidateService = require('../controllers/Candidates'),
 
 module.exports = function(app, config) {
 
-  app.get('/api/Candidates', candidateService.getCandidates);
+  app.get('/api/Candidates', candidateService.get);
  
+  app.post('/api/Candidates', candidateService.save);
+
   app.all('/api/*', function(req, res) {
     res.send(404);
   });

@@ -23,7 +23,7 @@
              */
             var TranslationManager = function ($translateProvider,tmhDynamicLocaleProvider)
             {
-               var _vendorPath = "../../client/vendor/";
+               var _vendorPath = "/vendor/";
                var DEFAULT_LOCALE='nl';
 
                 $translateProvider
@@ -38,7 +38,7 @@
 
                     tmhDynamicLocaleProvider.defaultLocale(DEFAULT_LOCALE);
 
-                    tmhDynamicLocaleProvider.localeLocationPattern(_vendorPath + '/angular-i18n/angular-locale_{{locale}}.js');
+                    tmhDynamicLocaleProvider.localeLocationPattern(_vendorPath + 'angular-i18n/angular-locale_{{locale}}.js');
             };
 
             return ['$translateProvider', 'tmhDynamicLocaleProvider', TranslationManager];

@@ -14,7 +14,7 @@
             var candidateService = function ($q, crudService) {
                 var deferred = $q.defer();
                 //TODO, hardcoded for production
-                var baseUrl =  "https://cgirecruitment.azurewebsites.net/api/Candidates";
+                var baseUrl = crudService.apiUrl + "/Candidates";
 
                 var serviceFactory = {
                     

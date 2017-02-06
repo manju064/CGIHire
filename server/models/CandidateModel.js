@@ -1,29 +1,30 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;;
+    Schema = mongoose.Schema;
+  
 
-var candidateModel = new Schema(
+var candidateSchema = new Schema(
     {
+        _id: Number,
         firstName:String,
         lastName:String,
         gender:String,
-        phone:Number,
-        email:String,
+        phoneNumber:Number,
+        emailId:String,
         highestQualification:String,
         linkedInUrl:String,
         comment:String,
-        PreferredLocations:{ type: Array, 'default': [] },
-        RoleInterestedId:Number,
-        SectorId:Number,
-        SubscribeToNewsLetter:{ type: Boolean, default:false },
-        PrivacyDisclaimer:{ type: Boolean, default:false },
-        EventId:Number
-    }
+        preferredLocations:{ type: Array, 'default': [] },
+        roleInterestedId:Number,
+        sectorId:Number,
+        subscribeToNewsLetter:{ type: Boolean, default:false },
+        privacyDisclaimer:{ type: Boolean, default:false },
+        eventId:Number,
+        cgiContactId:Number
+    },
+    { _id: false }
 );
-/*
-candidateModel.virtual('candidateId').get(function() {
-    return this._id;
-});
-*/
-var collectionName = 'candidates'
-module.exports = mongoose.model('Candidate', candidateModel,collectionName);
+
+//module.exports = candidateModel;
+var collectionName = 'candidates';
+  
+module.exports = mongoose.model('Candidate', candidateSchema, collectionName);

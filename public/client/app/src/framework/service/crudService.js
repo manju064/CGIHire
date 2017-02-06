@@ -17,6 +17,13 @@
                 var crudServiceFactory = {};
                 var deferred = $q.defer();
 
+                //TODO, inject via config files
+                //DEV Api
+                //crudServiceFactory.apiUrl =  "http://localhost:8081/api";
+                
+                //Prod Api
+                crudServiceFactory.apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
+
                 crudServiceFactory.get = function (url) {
                     return $http.get(url)
                         .then(function (data){

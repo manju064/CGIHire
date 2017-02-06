@@ -14,12 +14,13 @@
     "url": "git+https://github.com/manju064/CGIRecruitment.git"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
     "consolidate": "^0.14.5",
     "cookie-parser": "^1.1.0",
+    "del": "^2.2.2",
     "express": "^4.14.0",
     "express-session": "^1.2.1",
-    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.0.13",
@@ -40,10 +41,11 @@
     "mongodb": "^2.2.22",
     "mongodb-core": "^2.1.7",
     "mongoose": "^4.7.7",
+    "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.0.1",
     "requirejs": "^2.3.2",
-    "yargs": "^6.4.0",
     "serve-favicon": "^2.3.2",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "yargs": "^6.4.0"
   }
 }

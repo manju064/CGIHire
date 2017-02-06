@@ -7,7 +7,8 @@
             <li class="list-group-item" ng-repeat="candidate in candidates" 
                 ng-click="GetCandidateDetails(candidate.candidateId)"
                 ng-class-odd="'odd'" ng-class-even="'even'">
-                <span> {{candidate.candidateId + ", " + candidate.firstName + " " + candidate.lastName  }} </span>
+                <span> {{candidate._id + ", " + candidate.firstName + " " + candidate.lastName +
+                        ", " +  candidate.emailId }} </span>
             </li>
         </ul>
     </div>
