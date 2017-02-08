@@ -35,11 +35,11 @@
     "angular-dynamic-locale": "^0.1.32",
     "angular-i18n": "^1.6.1",
     "angular-bootstrap": "^2.4.0",
-    "bootstrap-ui-datetime-picker":"~2.4.3"
+    "bootstrap-ui-datetime-picker": "~2.4.3",
+    "angular-touch": "^1.6.1"
   },
   "resolutions": {
     "angular": "~1.6.1",
-    "angular-cookies": "~1.6.1",
-    "angular-bootstrap": "^2.4.0"
+    "angular-cookies": "~1.6.1"
   }
 }

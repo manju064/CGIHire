@@ -1,90 +1,123 @@
-<div class="container">
-	<!-- 	<h1 class="well">Registration Form</h1> -->
-	<div class="col-lg-12 well">
-		<div class="row">
-			<form name="regForm">
-				<div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-6 form-group">
-							<label for="firstName" class="control-label"
-								translate="First_Name"></label> <input type="text"
-								placeholder="{{ 'First_Name_Hint' | translate }}"
-								class="form-control" id="firstName"
-								ng-model="candidate.firstName"></input>
-						</div>
-						<div class="col-sm-4 form-group">
-							<label for="lastName" class="control-label" translate="Last_Name"></label>
-							<input type="text"
-								placeholder="{{ 'Last_Name_Hint' | translate }}"
-								class="form-control" id="lastName" ng-model="candidate.lastName"></input>
-						</div>
-						<div class="col-sm-2 form-group">
-							<label for="Gender" class="control-label" translate="Gender"></label>
-							<select id = "Gender" class="form-control" ng-model="candidate.gender" 
-									ng-options="gender.code as gender.name | translate for gender in genders">
-							</select>
-						</div>
+<!-- 	<h1 class="well">Registration Form</h1> -->
+<div class="col-lg-12 well">
+	<div class="row">
+		<form name="regForm">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label for="firstName" class="control-label" translate="First_Name"></label> <input type="text" placeholder="{{ 'First_Name_Hint' | translate }}"
+										class="form-control" id="firstName" ng-model="candidate.firstName"></input>
 					</div>
-					<div class="row">
-						<div class="col-sm-6 form-group">
-							<label for="phone" class="control-label" translate="Phone_Number"></label>
-							<input type="text"
-								placeholder="{{ 'Phone_Number_Hint' | translate }}"
-								class="form-control" ng-model="candidate.phoneNumber" id="phone"></input>
-						</div>
-						<div class="col-sm-6 form-group">
-							<label for="email" class="control-label"
-								translate="Email_Address"></label> <input type="text"
-								placeholder="{{ 'Email_Address_Hint' | translate }}"
-								class="form-control" ng-model="candidate.emailId" id="email"></input>
-						</div>
+					<div class="col-sm-4 form-group">
+						<label for="lastName" class="control-label" translate="Last_Name"></label>
+						<input type="text" placeholder="{{ 'Last_Name_Hint' | translate }}" class="form-control" id="lastName" ng-model="candidate.lastName"></input>
 					</div>
-					<div class="row">
-						<div class="col-sm-6 form-group">
-							<label for="qualification" class="control-label"
-								translate="Study"></label> 
-								<input type="text" id="qualification"
-									   class="form-control" 
-									   placeholder="{{ 'Study_Hint' | translate }}" 
-									   ng-model="candidate.qualification"  />
-						</div>
-						<div class="col-sm-6 form-group">
-							<label for="qualificationDate" class="control-label"
-								translate="Graduation_Date"></label>
-							<p class="input-group">
-								<input type="text" id="qualificationDate" class="form-control" 
-										datetime-picker="mediumDate" 
-										ng-model="candidate.qualificationDate" 
-										is-open="gradDatePicker.Open" 
-										enable-time="false" 
-										datepicker-options="gradDatePicker.Options" 
-										close-on-date-selection="true" 
-										datepicker-append-to-body="true" 
-										button-bar="gradDatePicker.ButtonBar"
-										/>
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-default" ng-click="CalendarClick()"><i class="fa fa-calendar"></i></button>
-								</span>
-							</p>		
-        				</div>
+					<div class="col-sm-2 form-group">
+						<label for="Gender" class="control-label" translate="Gender"></label>
+						<select id="Gender" class="form-control" ng-model="candidate.gender" ng-options="gender.code as gender.name | translate for gender in genders">
+						</select>
 					</div>
-					<div class="form-group">
-						<label for="linkedin" class="control-label"
-							translate="LinkedIn_URL"></label> <input type="text"
-							placeholder="{{ 'LinkedIn_URL_Hint' | translate }}"
-							class="form-control" id="linkedin"
-							ng-model="candidate.linkedInUrl"></input>
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="comment" translate="Comment"></label>
-						<textarea placeholder="{{ 'Comment_Hint' | translate }}" rows="3"
-							class="form-control" id="comment" ng-model="candidate.comment"></textarea>
-					</div>
-					<span ng-show="saveClicked" translate="saveText"></span>
-					<button type="button" class="btn btn-lg btn-info"
-						ng-click="saveCandidateDetails()" translate="Save"></button>
 				</div>
-			</form>
-		</div>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label for="phone" class="control-label" translate="Phone_Number"></label>
+						<input type="text" placeholder="{{ 'Phone_Number_Hint' | translate }}" class="form-control" ng-model="candidate.phoneNumber"
+										id="phone"></input>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label for="email" class="control-label" translate="Email_Address"></label> <input type="text" placeholder="{{ 'Email_Address_Hint' | translate }}"
+										class="form-control" ng-model="candidate.emailId" id="email"></input>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label for="qualification" class="control-label" translate="Study"></label>
+						<input type="text" id="qualification" class="form-control" placeholder="{{ 'Study_Hint' | translate }}" ng-model="candidate.qualification"
+						/>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label for="qualificationDate" class="control-label" translate="Graduation_Date"></label>
+						<p class="input-group">
+							<input type="text" id="qualificationDate" class="form-control" datetime-picker="mediumDate" ng-model="candidate.qualificationDate"
+											is-open="gradDatePicker.Open" enable-time="false" datepicker-options="gradDatePicker.Options" close-on-date-selection="true"
+											datepicker-append-to-body="true" button-bar="gradDatePicker.ButtonBar" />
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="CalendarClick()"><i class="fa fa-calendar"></i></button>
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label for="linkedin" class="control-label" translate="LinkedIn_URL"></label>
+						<input type="text" placeholder="{{ 'LinkedIn_URL_Hint' | translate }}" class="form-control" id="linkedin" ng-model="candidate.linkedInUrl"></input>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label for="preferredLocation" class="control-label" translate="preferredLocation"></label>
+						<select id="preferredLocation" class="form-control" ng-model="candidate.preferredLocation" ng-options="loc.code as loc.name for loc in locations">
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label for="sector" class="control-label" translate="sector"></label>
+						<select id="sector" class="form-control" ng-model="candidate.sectorId" ng-options="sector.code as sector.name for sector in sectors">
+						</select>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label for="role" class="control-label" translate="role"></label>
+						<input name="role" id="role" type="text" placeholder="{{ 'role_Hint' | translate }}" ng-model="candidate.roleId" 
+									uib-typeahead="role.code as role.name for role in roles | filter:$viewValue | limitTo:8"
+										typeahead-input-formatter="formatLabel($model)" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class=" col-sm-6 form-group">
+						<label class="control-label" for="comment" translate="Comment"></label>
+						<textarea placeholder="{{ 'Comment_Hint' | translate }}" rows="3" class="form-control" id="comment" ng-model="candidate.comment"></textarea>
+					</div>
+					<div class=" col-sm-6 form-group">
+						<label for="cgiContact" class="control-label" translate="cgiContact"></label>
+						<select id="cgiContact" class="form-control" ng-model="candidate.cgiContactId" ng-options="contact.code as contact.name for contact in cgiContacts">
+							</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<div class="col-sm-6">
+							<div class="checkbox">
+								<label>
+										<input type="checkbox" name="privacyDisclaimer" ng-model="candidate.privacyDisclaimer" 
+											ng-checked="candidate.privacyDisclaimer"/>
+											<a ng-click ="OpenTerms()" translate="terms"></a>
+									</label>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="checkbox">
+								<label>
+										<input type="checkbox" name="subscribeToNewsLetter" 
+											ng-model="candidate.subscribeToNewsLetter" /> 
+											<span translate="subscribeToNewsLetter"></span>
+									</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 form-group">
+					</div>
+				</div>
+				<span ng-show="saveClicked" translate="saveText"></span>
+				<button type="button" ng-disabled="!candidate.privacyDisclaimer" 
+						ng-click="saveCandidateDetails()" class="btn btn-info btn-block" translate="Save"></button>
+			</div>
+		</form>
 	</div>
 </div>
+<script type="text/ng-template" id="termsDialog">
+    <span translate="termsText"></span>
+	<!--<textarea  rows="6"	class="form-control" id="termsText" ng-model="termsText" readonly></textarea>-->
+	<div class="ngdialog-buttons">
+		<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm('true')" translate="Accept"></button>
+		<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('false')" translate="Decline"></button>
+	</div>
+</script>

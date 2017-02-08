@@ -4,14 +4,14 @@
             <h4>Resgistered Candidates</h4>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="candidate in candidates" 
-                ng-click="GetCandidateDetails(candidate.candidateId)"
+            <li class="list-group-item" ng-repeat="candidate in candidates track by candidate._id" 
                 ng-class-odd="'odd'" ng-class-even="'even'">
                 <span> {{candidate._id + ", " + candidate.firstName + " " + candidate.lastName +
                         ", " +  candidate.emailId }} </span>
             </li>
         </ul>
     </div>
+    <!--TODO handle candidate select event and show the details-->
     <div class="col-md-7" ng-show="isSelectedCandidate">
         <form name="regForm">
             <fieldset disabled="true">

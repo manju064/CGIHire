@@ -31,13 +31,13 @@ exports.save = function(req, res) {
         newCandidate.highestQualification = req.body.highestQualification;
         newCandidate.linkedInUrl = req.body.linkedInUrl;
         newCandidate.comment = req.body.comment;
-        newCandidate.preferredLocations = [{"Code":1}, {"code":2}];
-        newCandidate.roleIntereqtedId = 1;
-        newCandidate.sectorId = 1;
-        newCandidate.subscribeToNewsLetter = false;
-        newCandidate.privacyDisclaimer = true;
+        newCandidate.preferredLocation = req.body.preferredLocation;
+        newCandidate.roleId = req.body.roleId;
+        newCandidate.sectorId = req.body.sectorId;
+        newCandidate.subscribeToNewsLetter = req.body.subscribeToNewsLetter;
+        newCandidate.privacyDisclaimer = req.body.privacyDisclaimer;
         newCandidate.eventId = 1;
-        newCandidate.cgiContactId = 091331;
+        newCandidate.cgiContactId = req.body.cgiContactId;
         
         newCandidate
         .save()

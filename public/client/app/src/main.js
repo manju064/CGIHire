@@ -4,9 +4,11 @@
  *
  */
 define(['angular'
+        ,'ngTouch'
         ,'ngAnimate'
+        ,'ngDialog'
         ,'uiRouter'
-        ,'uiBootstrap'
+        ,'uiBootstrapTpls'
         ,'uiBootstrapDatetimePicr'
         ,'uiRouterExtra'
         ,'ngSanitize'
@@ -20,17 +22,19 @@ define(['angular'
         ,'framework/routeManager'
         ,'framework/translationManager'
         ],
-         function(angular,ngAnimate, uiRouter, uiBootstrap, uiBootstrapDatetimePicr, uiRouterExtra, ngSanitize, ngCookies, ngTranslate, ngTranslateLog
+         function(angular, ngTouch, ngAnimate, ngDialog, uiRouter, uiBootstrapTpls, uiBootstrapDatetimePicr, uiRouterExtra, ngSanitize, ngCookies, ngTranslate, ngTranslateLog
                     ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale,
                     modules, routeManager, translationManager) {
 
     var app, appName = 'app';
-    /**
+    /** 
      * Start the main application
      */
     var initialize = function() {
 
-        app = angular.module(appName, ['ngAnimate'
+        app = angular.module(appName, ['ngTouch'
+                                        ,'ngAnimate',
+                                        ,'ngDialog'
                                         ,'ui.bootstrap'
                                         ,'ui.bootstrap.datetimepicker'
                                         ,'ui.router'

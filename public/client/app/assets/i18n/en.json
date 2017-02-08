@@ -6,7 +6,7 @@
     "Phone_Number":"Phone Number",
     "Phone_Number_Hint":"Enter Phone Number",
     "Email_Address":"Email Address",
-    "Email_Address_Hint":"Vul email adres in",
+    "Email_Address_Hint":"Enter email address",
     "Study":"Study",
     "Study_Hint":"Enter your Study",
     "Graduation_Date":"Graduation Date",
@@ -28,5 +28,15 @@
     "Admin":"Admin",
     "Register":"Register",
     "Search":"Search",
-    "Search_Hint":"Search"
+    "Search_Hint":"Search",
+    "preferredLocation":"Preferred Location",
+    "sector":"sector",
+    "role":"Role interested",
+    "role_Hint":"Enter a role",
+    "terms":"privacy disclaimer",
+    "subscribeToNewsLetter":"Subscribe To NewsLetter",
+    "cgiContact":"CGI contact person",
+    "Accept":"Accept",
+    "Decline":"Decline",
+    "termsText":"<p><h4>Notice use of personal data by CGI</h4></p><p><b>Conditions for use of the Recruitment Event Registration Tool CGI Netherlands B.V. (Hereinafter CGI).M</b></p><p>Your personal information will be considered confidential information and that information is used only for the purpose described below.</p><p><b>CGI is committed to the Dutch and European legislation on the use of personal data.</b></p><p><b>The purpose of the use of your data</b></p><p>The purpose of the use of your personal data in the CGI Recruitment Event Registration Tool is to ease the chance of a career in CGI and to keep abreast of recruitment events.</p><p>You can of course apply for a job through our website. However, that means that you thereby gave explicit permission to CGI for that data to be stored up to 1 year. You can also choose to record your data (if any) together with your CV via the CGI Recruitment Event Registration Tool without applying. CGI also then choose to keep your data up to 1 year. After that period, CGI will ask you if required to extend that period.</p><p><b>Update and delete your personal data.</b> You can always delete your personal information from our database (to). That responsibility we leave to you. We will keep your data as long until you indicate that this is no longer desirable.</p><p>By accepting this statement you consent to the storage of your personal information.</p>"
 } 
