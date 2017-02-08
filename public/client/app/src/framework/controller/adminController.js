@@ -21,12 +21,15 @@
                 $scope.selectedCandidate ={};
 
                 $scope.GetAllCandidates = function(){
-                    candidateService.getAll().then(function (results) {
-                        angular.extend($scope.candidates, results.data);
-                        console.log("candidates = " + JSON.stringify($scope.candidates));
+                    candidateService.getAll().then(function (data) {
+                        console.log("GetAllCandidates data = " + JSON.stringify(data));
+                        angular.extend($scope.candidates, data);
                     });
                 }
-                $scope.GetAllCandidates(); 
+
+                //TODO, problem with sync
+                $scope.GetAllCandidates();
+                
                 // #endregion    
 
                 $scope.GetCandidateDetails = function(id){

@@ -291,8 +291,8 @@
 
                     console.log("Candidate " + JSON.stringify($scope.candidate));
 
-                    candidateService.save($scope.candidate).then( function(result){
-                        console.log('save result ' + result);
+                    candidateService.save($scope.candidate).then(function(result){
+                        console.log('save result ' + JSON.stringify(result));
                     });
 
                     // clear the form

@@ -8,41 +8,61 @@
 (function (define) {
     "use strict";
 
-    define([
-    ],
+    define([],
         function () {
-            var candidateService = function ($q, crudService) {
-                var deferred = $q.defer();
-                //TODO, hardcoded for production
-                var baseUrl = crudService.apiUrl + "/Candidates";
+            var candidateService = function ($http, $q) {
+                
+                //TODO, hardcoded for production inject via config files
+                //DEV Api
+                //var apiUrl =  "http://localhost:8081/api";
+                
+                //Prod Api
+                var apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
 
+                var url = apiUrl + "/Candidates";
                 var serviceFactory = {
-                    
+
                     getAll: function () {
-                        console.log(baseUrl);
-                        return crudService.get(baseUrl).then(function (response) {
-                            deferred.resolve(response);
-                            return deferred.promise;
-                        });
+                        var deferred = $q.defer();
+                        $http.get(url)
+                            .then(function (response) {
+                                console.log('candidateService get ' + JSON.stringify(response.data));
+                                deferred.resolve(response.data);
+                            }, function (error) {
+                                deferred.reject(error);
+                            });
+
+                        return deferred.promise;
                     },
                     get: function (id) {
-                        return crudService.getId(baseUrl, id).then(function (response) {
-                            deferred.resolve(response);
-                            return deferred.promise;
-                        });
+                        var deferred = $q.defer();
+                        $http.get(url + '/' + id)
+                            .then(function (response) {
+                                console.log("candidateService GetId = " + JSON.stringify(response));
+                                deferred.resolve(response);
+                            }, function (error) {
+                                 deferred.reject(error);
+                            });
+
+                        return deferred.promise;
                     },
-                    save:  function (data) {
-                    	console.log("candidateService save " + JSON.stringify(data));
-                        return crudService.postModel(baseUrl, data).then(function (response) {
+                    save: function (data) {
+                        var deferred = $q.defer();
+                        console.log("candidateService save " + JSON.stringify(data));
+                        $http.post(url, data)
+                        .then(function (response){
                             deferred.resolve(response);
-                            return deferred.promise;
+                        },function (error){
+                            deferred.reject(error);
                         });
-                    }   
+
+                       return deferred.promise;
+                    }
                 }
                 return serviceFactory;
             };
 
-            return ["$q", "crudService", candidateService];
+            return ["$http", "$q", candidateService];
         });
 
-} (define));
+}(define));

@@ -2,6 +2,7 @@
  * ******************************************************************************************************
  *
  *   crud Service
+ *   TODO, not in use
  *
  * ******************************************************************************************************
  */
@@ -22,15 +23,18 @@
                 //crudServiceFactory.apiUrl =  "http://localhost:8081/api";
                 
                 //Prod Api
-                crudServiceFactory.apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
+                //crudServiceFactory.apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
 
                 crudServiceFactory.get = function (url) {
-                    return $http.get(url)
-                        .then(function (data){
-                          return data;
+                     $http.get(url)
+                        .then(function (response){
+                          console.log('crudServiceFactory get' + JSON.stringify(response.data));
+                          deferred.resolve(response.data);
                         },function (error){
-                            return error;
+                            deferred.reject(error);
                         });
+
+                    return deferred.promise;
                 };
 
                 crudServiceFactory.getId = function (url, id) {
