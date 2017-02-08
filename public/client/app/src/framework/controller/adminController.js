@@ -22,7 +22,7 @@
 
                 $scope.GetAllCandidates = function(){
                     candidateService.getAll().then(function (results) {
-                        $scope.candidates = results.data;
+                        angular.extend($scope.candidates, results.data);
                         console.log("candidates = " + JSON.stringify($scope.candidates));
                     });
                 }

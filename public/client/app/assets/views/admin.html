@@ -4,7 +4,7 @@
             <h4>Resgistered Candidates</h4>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="candidate in candidates track by candidate._id" 
+            <li class="list-group-item" ng-repeat="candidate in candidates track by $index" 
                 ng-class-odd="'odd'" ng-class-even="'even'">
                 <span> {{candidate._id + ", " + candidate.firstName + " " + candidate.lastName +
                         ", " +  candidate.emailId }} </span>
