@@ -21,11 +21,14 @@
              * - to be used in main.js -> angular.config()
              *
              */
-            var RouteManager = function ($stateProvider, $urlRouterProvider)
+            var RouteManager = function ($stateProvider, $urlRouterProvider,$locationProvider)
             {
 
                 var viewDir = "assets/views/";
                 $urlRouterProvider.otherwise("/");
+                
+                $locationProvider
+                    .html5Mode({enabled:true, requireBase:false});
 
                 $stateProvider
                      .state('/', {
@@ -68,7 +71,7 @@
                     })
             };
 
-            return ["$stateProvider", "$urlRouterProvider", RouteManager];
+            return ["$stateProvider", "$urlRouterProvider",'$locationProvider', RouteManager];
         });
 
 }( define ));

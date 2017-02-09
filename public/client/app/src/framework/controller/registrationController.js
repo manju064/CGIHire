@@ -256,7 +256,6 @@
                 }
                 $scope.OpenTerms = function(){
                    console.log('Terms and conditions dialog open'); 
-                   $scope.terms = 'no';
                    ngDialog.openConfirm({
                         template: 'termsDialog',
                         className: 'ngdialog-theme-default custom-width',
@@ -267,12 +266,12 @@
                     }).then(
                         function(value) {
                             //save the contact form
-                            console.log('Terms and conditions accepted ' + value); 
+                            //console.log('Terms and conditions accepted ' + value); 
                             $scope.candidate.privacyDisclaimer = true;
                         },
                         function(value) {
                             //Cancel or do nothing
-                            console.log('Terms and conditions rejected ' + value); 
+                            //console.log('Terms and conditions rejected ' + value); 
                             $scope.candidate.privacyDisclaimer = false;
                         }
                     );
@@ -285,7 +284,7 @@
                     $scope.gradDatePicker.Open = !$scope.gradDatePicker.Open;
                 };
                 
-                $scope.saveCandidateDetails = function () {
+                $scope.saveCandidateDetails =  () => {
                     // call save service;
                     console.log("Inside saveCandidateDetails : save triggered...");
 
@@ -295,13 +294,26 @@
                         console.log('save result ' + JSON.stringify(result));
                     });
 
-                    // clear the form
-                    $scope.candidate = {};
-                    $scope.regForm.$setPristine();
-                    $scope.regForm.$setUntouched();
                     $scope.saveClicked = true;
                 }
-                //$scope.content = appModel.getInstance().getData().pages[1].content;
+
+               //reset the form 
+               $scope.reset = function() {
+                    ngDialog.openConfirm({
+                        template: 'confirmDialog',
+                        className: 'ngdialog-theme-default',
+                        width: 400,
+                        }).then( (value) => {
+                            $scope.candidate = {};
+                            $scope.regForm.$setPristine();
+                            $scope.regForm.$setUntouched();
+                            $scope.regForm.$setValidity();
+                            $scope.saveClicked = false;
+                            console.log('Reset confirmed:');
+                        },  (reason) => {
+                            console.log('Modal promise rejected. Reason: ', reason);
+                    });
+               }
             };
 
             return ["$scope",'candidateService', '$translate', 'ngDialog',registrationController];

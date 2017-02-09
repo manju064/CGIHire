@@ -25,10 +25,10 @@
                     getAll: function () {
                         var deferred = $q.defer();
                         $http.get(url)
-                            .then(function (response) {
-                                console.log('candidateService get ' + JSON.stringify(response.data));
+                            .then( (response) =>  {
+                                //console.log('candidateService get ' + JSON.stringify(response.data));
                                 deferred.resolve(response.data);
-                            }, function (error) {
+                            }, (error) => {
                                 deferred.reject(error);
                             });
 
@@ -37,10 +37,10 @@
                     get: function (id) {
                         var deferred = $q.defer();
                         $http.get(url + '/' + id)
-                            .then(function (response) {
-                                console.log("candidateService GetId = " + JSON.stringify(response));
+                            .then( (response) => {
+                                //console.log("candidateService GetId = " + JSON.stringify(response));
                                 deferred.resolve(response);
-                            }, function (error) {
+                            }, (error) => {
                                  deferred.reject(error);
                             });
 
@@ -48,11 +48,11 @@
                     },
                     save: function (data) {
                         var deferred = $q.defer();
-                        console.log("candidateService save " + JSON.stringify(data));
+                        //console.log("candidateService save " + JSON.stringify(data));
                         $http.post(url, data)
-                        .then(function (response){
+                        .then( (response)=>{
                             deferred.resolve(response);
-                        },function (error){
+                        }, (error) =>{
                             deferred.reject(error);
                         });
 
