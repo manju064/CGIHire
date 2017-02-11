@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     CounterModel = require('../models/Counter');
     
 module.exports = function(config) {
-  console.log('Connecting to', config.db.url); 
+  //console.log('Connecting to', config.db.url); 
   var db = mongoose.connection;
   mongoose.connect(config.db.url);
   db.on('error', console.error.bind(console, 'connection error...'));

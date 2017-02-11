@@ -28,6 +28,7 @@
                     'ngTranslateLoaderStaticFiles': _vendorPath +'angular-translate-loader-static-files/angular-translate-loader-static-files',
                     'tmhDynamicLocale':_vendorPath + 'angular-dynamic-locale/dist/tmhDynamicLocale',
                     'ghiscodingValidation':_vendorPath + 'angular-validation-ghiscoding/dist/angular-validation.min',
+                    'ngFader':_vendorPath + 'ngFader/ngFader',
                     'framework':'./framework',
                     'service':'./framework/service',
                     'controller':'./framework/controller',
@@ -51,6 +52,7 @@
                     'ngTranslateLoaderStaticFiles': { 'deps': ['ngTranslate'] }, 
                     'tmhDynamicLocale':{ 'deps': ['angular'] },
                     'ghiscodingValidation':{ 'deps': ['angular'] },
+                    'ngFader':{ 'deps': ['ngAnimate','ngTouch'] },
                     'bootStrap':{ 'deps': ['jquery'] },
                     'service':{ 'deps': ['angular'] },
                     'controller':{ 'deps': ['angular', 'service'] }
