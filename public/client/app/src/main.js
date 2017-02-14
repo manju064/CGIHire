@@ -11,7 +11,7 @@ define(['angular'
         ,'uiBootstrapTpls'
         ,'uiBootstrapDatetimePicr'
         //,'uiRouterExtra'
-        ,'ngFader'
+        ,'ngCarousel'
         ,'ngSanitize'
         ,'ngCookies'
         ,'ngTranslate'
@@ -25,7 +25,7 @@ define(['angular'
         ,'framework/translationManager'
         ],
          function(angular, ngTouch, ngAnimate, ngDialog, uiRouter, uiBootstrapTpls, uiBootstrapDatetimePicr
-                    ,ngFader, ngSanitize, ngCookies, ngTranslate, ngTranslateLog
+                    ,ngCarousel,ngSanitize, ngCookies, ngTranslate, ngTranslateLog
                     ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale, ghiscodingValidation,
                     modules, routeManager, translationManager) {
 
@@ -41,7 +41,7 @@ define(['angular'
                                         ,'ghiscoding.validation'
                                         ,'ui.bootstrap'
                                         ,'ui.bootstrap.datetimepicker'
-                                        ,'ngFader'
+                                        ,'angular-carousel'
                                         ,'ui.router'
                                         //,'ct.ui.router.extras'
                                         ,'ngSanitize'

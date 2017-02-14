@@ -19,6 +19,7 @@
                     'ngAnimate':_vendorPath + 'angular-animate/angular-animate',
                     'ngDialog':_vendorPath + 'ng-dialog/js/ngDialog',
                     'ngTouch':_vendorPath + 'angular-touch/angular-touch',
+                    'ngCarousel':_vendorPath + 'angular-carousel/dist/angular-carousel',
                     'uiRouter': _vendorPath + 'angular-ui-router/release/angular-ui-router',
                     //'uiRouterExtra': _vendorPath + 'ui-router-extras/release/ct-ui-router-extras',
                     'ngCookies':_vendorPath + 'angular-cookies/angular-cookies',
@@ -28,8 +29,8 @@
                     'ngTranslateLoaderStaticFiles': _vendorPath +'angular-translate-loader-static-files/angular-translate-loader-static-files',
                     'tmhDynamicLocale':_vendorPath + 'angular-dynamic-locale/dist/tmhDynamicLocale',
                     'ghiscodingValidation':_vendorPath + 'angular-validation-ghiscoding/dist/angular-validation.min',
-                    'ngFader':_vendorPath + 'ngFader/ngFader',
                     'framework':'./framework',
+                    'common':'./framework/common',
                     'service':'./framework/service',
                     'controller':'./framework/controller',
                     'model':'./framework/model'
@@ -39,6 +40,7 @@
                     'angular':{ 'deps': ['jquery'],'exports':'angular' },
                     'ngAnimate':{ 'deps': ['angular'] },
                     'ngTouch':{ 'deps': ['angular'] },
+                    'ngCarousel':{ 'deps': ['angular','ngTouch'] },
                     'ngDialog':{ 'deps': ['angular'] },
                     'uiBootstrapTpls':{ 'deps': ['angular','ngAnimate','ngTouch'] },
                     'uiBootstrapDatetimePicr':{ 'deps': ['uiBootstrapTpls'] },
@@ -52,10 +54,10 @@
                     'ngTranslateLoaderStaticFiles': { 'deps': ['ngTranslate'] }, 
                     'tmhDynamicLocale':{ 'deps': ['angular'] },
                     'ghiscodingValidation':{ 'deps': ['angular'] },
-                    'ngFader':{ 'deps': ['ngAnimate','ngTouch'] },
                     'bootStrap':{ 'deps': ['jquery'] },
+                    'common':{ 'deps': ['angular'] },
                     'service':{ 'deps': ['angular'] },
-                    'controller':{ 'deps': ['angular', 'service'] }
+                    'controller':{ 'deps': ['angular', 'common', 'service'] }
                 },
                 priority: ['angular']
             }

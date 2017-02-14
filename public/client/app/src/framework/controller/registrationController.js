@@ -20,6 +20,24 @@
                 $scope.regForm = {};
                 $scope.saveClicked = false;
                 
+                $scope.setTime = 3000;
+                $scope.responsive = true;
+
+                //List your images here. 
+                $scope.images =  [{
+                                    src: './assets/images/slides/CGI_banner_1.png',
+                                    alt: 'Add your image description here'
+                                    }, {
+                                    src: './assets/images/slides/CGI_banner_2.png',
+                                    alt: 'Add your image description here'
+                                    }, {
+                                    src: './assets/images/slides/CGI_banner_3.png',
+                                    alt: 'Add your image description here'
+                                    }, {
+                                    src: './assets/images/slides/CGI_banner_4.png',
+                                    alt: 'Add your image description here'
+                }];
+
                 //name are key's from language files
                 $scope.genders = [{code: "M", name:"TXT_MALE"}, {code: "F", name:"TXT_FEMALE"}];
 

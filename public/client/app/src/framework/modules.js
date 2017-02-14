@@ -5,6 +5,7 @@
 
     define([
             'angular',
+            'common/ngFader',
             'service/crudService',
             'service/candidateService',
             'controller/appController',
@@ -12,7 +13,8 @@
             'controller/adminController',
             'controller/registrationController'
         ],
-        function (angular,crudService,candidateService
+        function (angular,ngFader
+                        ,crudService,candidateService
                         ,appController,homeController
                         ,adminController,registrationController
                     )
@@ -23,6 +25,8 @@
                 // Services
                 .factory( "crudService", crudService)
                 .factory( "candidateService", candidateService)
+
+                .directive('ngFader',ngFader)
 
                 // Controllers
                 .controller( "appController", appController)
