@@ -20,7 +20,6 @@ exports.save = function(req, res) {
     
     //Set model values
     //TODO, don't we have better way ?
-    newCandidate._id = req.body._id;
     newCandidate.firstName = req.body.firstName;
     newCandidate.lastName = req.body.lastName;
     newCandidate.gender = req.body.gender;
@@ -38,9 +37,10 @@ exports.save = function(req, res) {
     newCandidate.eventId = 1;
     newCandidate.cgiContactId = req.body.cgiContactId;
 
-    if(newCandidate._id == null || newCandidate._id == undefined){
+    if( req.params.Candidate_Id == null || req.params.Candidate_Id == undefined){
         Create(newCandidate);
     }else{
+        newCandidate._id = req.params.Candidate_Id;
         update(newCandidate);
     }
 
@@ -51,7 +51,7 @@ exports.save = function(req, res) {
             .save()
             .then( user => {
                 console.log('created user: ' + user.firstName);
-                res.json( {id:user_id, message: 'User created successfully '});
+                res.json( {id:user._id, message: 'User created successfully '});
             })
             .catch( err =>{
                 // just need one of these
@@ -61,8 +61,12 @@ exports.save = function(req, res) {
     }
 
     function update(newCandidate){
+        console.log('update ' + req.params.Candidate_Id);
+
+        newCandidate._id = req.params.Candidate_Id;
+
         Candidate
-        .update({ _id: newCandidate._id }, newCandidate, { upsert: true, new: true })
+        .update({ _id: parseInt(req.params.Candidate_Id) }, newCandidate, { upsert: true, new: true })
         .then( user => {
             console.log('updated user: ' + user.firstName);
             res.json({id:user._id, message: 'User Saved successfully '});
@@ -70,6 +74,21 @@ exports.save = function(req, res) {
         .catch( err =>{
             // just need one of these
             console.log('error:', err);
+            res.json(err);
         });
     }
+};
+
+
+exports.remove = function(req, res) {
+    Candidate.remove({ _id: req.params.Candidate_Id }
+        )
+        .then(result => {
+            res.json({ message: 'Successfully deleted' });
+        })  
+        .catch( err =>{
+            // just need one of these
+            console.log('error:', err);
+            res.json(err);
+        });
 };

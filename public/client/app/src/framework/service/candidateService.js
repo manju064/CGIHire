@@ -57,6 +57,30 @@
                         });
 
                        return deferred.promise;
+                    },
+                    update: function (id, data) {
+                        var deferred = $q.defer();
+                        //console.log("candidateService save " + JSON.stringify(data));
+                        $http.post(url + '/' + id, data)
+                        .then( (response)=>{
+                            deferred.resolve(response);
+                        }, (error) =>{
+                            deferred.reject(error);
+                        });
+
+                       return deferred.promise;
+                    },
+                    remove: function (id) {
+                        var deferred = $q.defer();
+                        //console.log("candidateService save " + JSON.stringify(data));
+                        $http.delete(url + '/' + id)
+                        .then( (response)=>{
+                            deferred.resolve(response);
+                        }, (error) =>{
+                            deferred.reject(error);
+                        });
+
+                       return deferred.promise;
                     }
                 }
                 return serviceFactory;

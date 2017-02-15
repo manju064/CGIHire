@@ -11,7 +11,7 @@
             /**
              * @constructor
              */
-            var registrationController = function($scope, dataService, candidateService,$translate,ngDialog)
+            var registrationController = function($scope, $state, dataService, candidateService,$translate,ngDialog)
             {
                 console.log("registration Controller Initialized");
                 $scope.candidate = {};
@@ -179,10 +179,20 @@
 
                     candidateService.save($scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
+                        
+                        ngDialog.openConfirm({
+                            template: 'registerConfDialog',
+                            className: 'ngdialog-theme-default',
+                            width: 400,
+                        }).then( (value) => {
+                            $state.go('home');
+                        }, (reason) => {
+                             //dialog closed
+                             $state.go('home');
+                            console.log('Modal promise rejected. Reason: ', reason);
+                        });
                     });
-
-                    $scope.saveClicked = true;
-                }
+               }
 
                //reset the form 
                $scope.reset = function() {
@@ -203,7 +213,7 @@
                }
             };
 
-            return ['$scope','dataService','candidateService', '$translate', 'ngDialog',registrationController];
+            return ['$scope','$state','dataService','candidateService', '$translate', 'ngDialog',registrationController];
         });
 
 }( define ));

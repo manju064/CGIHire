@@ -40,9 +40,11 @@ h1 {
     color: black;
 };
 
-.influxGrid {
-    width: 100%;
-    height: 100%;
+.form-group.required .control-label:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 4px;
 }
 
 /*	Making the header responsive. Remove these styles, if

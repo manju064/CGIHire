@@ -130,20 +130,29 @@
 
                     $scope.gradDatePicker.Open = !$scope.gradDatePicker.Open;
                 };
+
                 $scope.save = function(){
                     //Update the record
                     // call save service;
                     console.log("Candidate update" + JSON.stringify($scope.candidate));
-                    candidateService.save($scope.candidate).then(function(result){
+                    candidateService.update($scope.candidate._id, $scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
                     });
 
                     $scope.saveClicked = true;
+                    $uibModalInstance.close($scope.candidate);
                 } 
 
                 $scope.remove = function(){
-                    //Remove from gird
-                    //Remove from DB
+                    console.log("Candidate remove" + JSON.stringify($scope.candidate._id));
+                    candidateService.remove($scope.candidate._id).then(function(result){
+                        console.log('save result ' + JSON.stringify(result));
+                        //remove from grid  
+                        var index = grid.appScope.serviceGrid.data.indexOf(row.entity);
+                        grid.appScope.serviceGrid.data.splice(index, 1);
+                    });
+
+                    $uibModalInstance.close($scope.candidate._id);
                 }
             };
             

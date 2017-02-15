@@ -27,9 +27,8 @@
 			<div class="col-sm-6 form-group">
 				<label for="phone" class="control-label" translate="Phone_Number"></label>
 				<input type="number" id="phone" name="phone" placeholder="{{ 'Phone_Number_Hint' | translate }}" 
-						class="form-control" ng-model="candidate.phoneNumber" 
-						validation="required:alt={{ 'Phone_Number_Required' | translate }}
-									|numeric_signed|min_len:6:alt={{ 'Phone_Number_Min_Len' | translate }}"></input>
+						class="form-control" ng-model="candidate.phoneNumber"> 
+				</input>
 			</div>
 			<div class="col-sm-6 form-group">
 				<label for="email" class="control-label" translate="Email_Address"></label> 
@@ -45,7 +44,7 @@
 				<input type="text" id="qualification" name="qualification"
 						placeholder="{{ 'Highest_Qualification_Hint' | translate }}" 
 						class="form-control" ng-model="candidate.highestQualification"
-						validation="required:alt={{ 'Highest_Qualification_Required' | translate }}"	/>
+						/>
 			</div>
 			<div class="col-sm-6 form-group">
 				<label for="qualificationDate" class="control-label" translate="Graduation_Date"></label>
@@ -89,34 +88,32 @@
 			</div>
 			<div class=" col-sm-6 form-group">
 				<label for="cgiContact" class="control-label" translate="cgiContact"></label>
-				<select id="cgiContact" class="form-control" ng-model="candidate.cgiContactId" ng-options="contact.code as contact.name for contact in cgiContacts">
-							</select>
+				<select id="cgiContact" name ="cgiContactId" class="form-control" ng-model="candidate.cgiContactId" 
+					ng-options="contact.code as contact.name for contact in cgiContacts"
+					validation="required:alt={{ 'cgiContact_Required' | translate }}">
+				</select>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3"></div> 
-			<div class="col-sm-9 form-group">
-				<div class="col-sm-6">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" ng-disabled="true" name="privacyDisclaimer" ng-model="candidate.privacyDisclaimer" 
-								ng-checked="candidate.privacyDisclaimer" ng-disabled="true"/>
-								<a ng-click ="OpenTerms()" translate="terms"></a>
-						</label>
-					</div>
+			<div class="col-sm-5">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" ng-disabled="true" name="privacyDisclaimer" ng-model="candidate.privacyDisclaimer" 
+							ng-checked="candidate.privacyDisclaimer" ng-disabled="true"/>
+							<a ng-click ="OpenTerms()" translate="terms"></a>
+					</label>
 				</div>
-				<div class="col-sm-6">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="subscribeToNewsLetter" 
-								ng-model="candidate.subscribeToNewsLetter" /> 
-								<span translate="subscribeToNewsLetter"></span>
-						</label>
-					</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="subscribeToNewsLetter" 
+							ng-model="candidate.subscribeToNewsLetter" /> 
+							<span translate="subscribeToNewsLetter"></span>
+					</label>
 				</div>
 			</div>
 		</div>
-
 		<div class="row modal-footer">
             <div class="col-sm-3">
 				<span ng-show="saveClicked" translate="saveText"></span>

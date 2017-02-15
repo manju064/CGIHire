@@ -8,6 +8,10 @@ module.exports = function(app, config) {
  
   app.post('/api/Candidates', candidateService.save);
 
+  app.post('/api/Candidates/:Candidate_Id', candidateService.save);
+
+  app.delete('/api/Candidates/:Candidate_Id', candidateService.remove);
+
   app.all('/api/*', function(req, res) {
     res.send(404);
   });

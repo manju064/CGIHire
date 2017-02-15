@@ -44,10 +44,18 @@
                                 data = [{code: "M", name:"TXT_MALE"}, {code: "F", name:"TXT_FEMALE"}];
                                 break;
                             case 'cgiContacts':
-                                data = [{code:1, name:"Jolanda Phillipson"}
-                                      ,{code:2, name:"Felix Timmerman"}
-                                      ,{code:91331, name:"Manjunath Keshava"}
-                                     ];
+                                data = [
+                                        {code:1, name:"Jolanda Phillipson"}
+                                        ,{code:2, name:"Stefan van der Wal"}
+                                        ,{code:3, name:"Joep Kokkeler"}
+                                        ,{code:4, name:"Joeri Taelman"}
+                                        ,{code:5, name:"Marnix de Bruin"}
+                                        ,{code:6, name:"Alexander Chatzizacharias"}
+                                        ,{code:7, name:"Yosuf Haydary"}
+                                        ,{code:8, name:"Manish Vashista"}
+                                        ,{code:9, name:"Romina Spies"}
+                                        ,{code:10, name:"Miltiadis Nedelkos"}
+                                    ];
                                 break;
                             case 'locations':
                                 data = [{code:1, name:"Hoofddorp"}
