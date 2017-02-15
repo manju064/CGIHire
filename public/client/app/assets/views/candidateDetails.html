@@ -1,8 +1,5 @@
-<div class="row">
-	<ng-fader></ng-fader> 
-</div>
-<div class="row">
 <form name="regForm" novalidate class="col-lg-12 well">
+	<h3 translate="EditCandidateDetails"></h3>
 	<div class="col-sm-12">
 		<div class="row">
 			<div class="col-sm-6 form-group">
@@ -97,12 +94,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6 form-group">
+			<div class="col-sm-3"></div> 
+			<div class="col-sm-9 form-group">
 				<div class="col-sm-6">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" name="privacyDisclaimer" ng-model="candidate.privacyDisclaimer" 
-								ng-checked="candidate.privacyDisclaimer"/>
+							<input type="checkbox" ng-disabled="true" name="privacyDisclaimer" ng-model="candidate.privacyDisclaimer" 
+								ng-checked="candidate.privacyDisclaimer" ng-disabled="true"/>
 								<a ng-click ="OpenTerms()" translate="terms"></a>
 						</label>
 					</div>
@@ -117,37 +115,29 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 form-group">
-			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-sm-2">
+		<div class="row modal-footer">
+            <div class="col-sm-3">
 				<span ng-show="saveClicked" translate="saveText"></span>
-			</div>
-			<div class="col-sm-6 form-group">
+            </div>
+			<div class="col-sm-3 form-group">
 				<button type="button" 
 						ng-disabled="!candidate.privacyDisclaimer || regForm.$invalid" 
-						ng-click="saveCandidateDetails()" class="btn btn-info btn-block"
+						ng-click="save()" class="btn btn-success btn-block"
 						translate="Save"></button>
 			</div>
-			<div class="col-sm-4 form-group">
-				<button type="button"  ng-click="reset()" class="btn btn-info btn-block"
-						translate="Reset"></button>
+			<div class="col-sm-3 form-group">
+				<button type="button"  ng-click="remove()" class="btn btn-danger btn-block"
+						translate="Delete"></button>
+			</div>
+            <div class="col-sm-3 form-group">
+				<button type="button"  ng-click="$close()" class="btn btn-warning btn-block"
+						translate="Cancel"></button>
 			</div>
 		</div>
-		
 	</div>
 </form>
-</div>
-<script type="text/ng-template" id="termsDialog">
-    <span translate="TermsText"></span>
-	<div class="ngdialog-buttons">
-		<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm('true')" translate="Accept"></button>
-		<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('false')" translate="Decline"></button>
-	</div>
-</script>
-
 <script type="text/ng-template" id="confirmDialog">
 	<span translate="ResetText"></span>
 	<div class="ngdialog-buttons">

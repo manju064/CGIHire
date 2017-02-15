@@ -41,6 +41,7 @@
     "Decline":"Afwijzen",
     "OK":"OK",
     "Cancel":"Annuleer",
+    "Delete":"Verwijder",
     "TermsText":"<p><h3>Verklaring gebruik persoonsgegevens door CGI</h3></p><p><b>Voorwaarden voor het gebruik van de Recruitment Event Registratie Tool van CGI Nederland B.V. , (hierna CGI).</b></p><p>Jouw persoonlijke gegevens worden beschouwd als vertrouwelijke informatie en die gegevens worden alleen gebruikt voor het hieronder beschreven doel.</p><p>CGI Committeert zich aan de Nederlandse en Europese wetgeving voor het gebruik van persoonsgegevens.</p><p><b>Het doel van het gebruik van jouw gegevens</b></p><p>Het doel van het gebruik van jouw persoonsgegevens in de CGI Recruitment Event Registratie Tool is om de kans op een carrière binnen CGI te vergemakkelijken en om op de hoogte te blijven van recruitment evenementen.</p><p><b>Bijwerken en verwijderen van jouw persoonlijke gegevens.</b></p><p>Jij kunt te allen tijde jouw persoonlijke gegevens in onze database laten verwijderen. Die verantwoordelijkheid laten we aan jou over. Wij bewaren jouw gegevens voor een maximale periode van 1 jaar of totdat jij eerder aangeeft dat dit niet langer wenselijk is.</p><p>Met het accepteren van deze verklaring geef jij toestemming voor het bewaren van jouw persoonlijke gegevens.</p>",
     "ResetText":"<p><h3>bevestig reset</h3></p><p>Weet je het zeker? Dit zal reset de vorm gegevens</p>",
     "First_Name_Required":"Voornaam verplicht",
@@ -51,5 +52,7 @@
     "Phone_Number_Min_Len":"Telefoonnummer moet ten minste 9 cijfers",
     "INVALID_EMAIL":"Ongeldig e-mail",
     "Email_Address_Required":"E-mailadres vereist",
-    "Highest_Qualification_Required":"Hoogste Kwalificatie vereist"
+    "Highest_Qualification_Required":"Hoogste Kwalificatie vereist",
+    "RegisteredCandidates":"Registered Kandidaten",
+    "EditCandidateDetails":"Kandidaat Details bewerken"
 }

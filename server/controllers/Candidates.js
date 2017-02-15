@@ -20,35 +20,56 @@ exports.save = function(req, res) {
     
     //Set model values
     //TODO, don't we have better way ?
-    
-    apiBase.getNextSequence("candidateId").then(seq => {
-        newCandidate._id = seq;
-        newCandidate.firstName = req.body.firstName;
-        newCandidate.lastName = req.body.lastName;
-        newCandidate.gender = req.body.gender;
-        newCandidate.phoneNumber = req.body.phoneNumber;
-        newCandidate.emailId = req.body.emailId;
-        newCandidate.highestQualification = req.body.highestQualification;
-        newCandidate.linkedInUrl = req.body.linkedInUrl;
-        newCandidate.comment = req.body.comment;
-        newCandidate.preferredLocation = req.body.preferredLocation;
-        newCandidate.roleId = req.body.roleId;
-        newCandidate.sectorId = req.body.sectorId;
-        newCandidate.subscribeToNewsLetter = req.body.subscribeToNewsLetter;
-        newCandidate.privacyDisclaimer = req.body.privacyDisclaimer;
-        newCandidate.eventId = 1;
-        newCandidate.cgiContactId = req.body.cgiContactId;
-        
-        newCandidate
-        .save()
+    newCandidate._id = req.body._id;
+    newCandidate.firstName = req.body.firstName;
+    newCandidate.lastName = req.body.lastName;
+    newCandidate.gender = req.body.gender;
+    newCandidate.phoneNumber = req.body.phoneNumber;
+    newCandidate.emailId = req.body.emailId;
+    newCandidate.highestQualification = req.body.highestQualification;
+    newCandidate.qualificationDate = req.body.qualificationDate;
+    newCandidate.linkedInUrl = req.body.linkedInUrl;
+    newCandidate.comment = req.body.comment;
+    newCandidate.preferredLocation = req.body.preferredLocation;
+    newCandidate.roleId = req.body.roleId;
+    newCandidate.sectorId = req.body.sectorId;
+    newCandidate.subscribeToNewsLetter = req.body.subscribeToNewsLetter;
+    newCandidate.privacyDisclaimer = req.body.privacyDisclaimer;
+    newCandidate.eventId = 1;
+    newCandidate.cgiContactId = req.body.cgiContactId;
+
+    if(newCandidate._id == null || newCandidate._id == undefined){
+        Create(newCandidate);
+    }else{
+        update(newCandidate);
+    }
+
+    function Create(candidate){
+        apiBase.getNextSequence("candidateId").then(seq => {
+            candidate._id = seq;
+            candidate
+            .save()
+            .then( user => {
+                console.log('created user: ' + user.firstName);
+                res.json( {id:user_id, message: 'User created successfully '});
+            })
+            .catch( err =>{
+                // just need one of these
+                console.log('error:', err);
+            });
+        });
+    }
+
+    function update(newCandidate){
+        Candidate
+        .update({ _id: newCandidate._id }, newCandidate, { upsert: true, new: true })
         .then( user => {
             console.log('updated user: ' + user.firstName);
-            res.json('Saved successfully');
+            res.json({id:user._id, message: 'User Saved successfully '});
         })
         .catch( err =>{
             // just need one of these
             console.log('error:', err);
         });
-    });
-   
+    }
 };

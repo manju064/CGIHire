@@ -19,14 +19,16 @@ define(['angular'
         ,'ngTranslateLoaderStaticFiles'
         ,'tmhDynamicLocale'
         ,'ghiscodingValidation'
+        ,'uiGrid'
         ,'framework/modules'
         ,'framework/routeManager'
         ,'framework/translationManager'
         ],
          function(angular, ngTouch, ngAnimate, ngDialog, uiRouter, uiBootstrapTpls, uiBootstrapDatetimePicr
                     ,ngSanitize, ngCookies, ngTranslate, ngTranslateLog
-                    ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale, ghiscodingValidation,
-                    modules, routeManager, translationManager) {
+                    ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale, ghiscodingValidation
+                    ,uiGrid
+                    ,modules, routeManager, translationManager) {
 
     var app, appName = 'app';
     /** 
@@ -38,9 +40,14 @@ define(['angular'
                                         ,'ngAnimate',
                                         ,'ngDialog'
                                         ,'ghiscoding.validation'
+                                        ,'ui.grid' 
+                                        ,'ui.grid.moveColumns'
+                                        ,'ui.grid.selection'
+                                        ,'ui.grid.resizeColumns'
                                         ,'ui.bootstrap'
                                         ,'ui.bootstrap.datetimepicker'
                                         ,'ui.router'
+
                                         //,'ct.ui.router.extras'
                                         ,'ngSanitize'
                                         ,'ngCookies'

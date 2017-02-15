@@ -8,23 +8,26 @@
             'common/ngFader',
             'service/crudService',
             'service/candidateService',
+            'service/dataService',
             'controller/appController',
             'controller/homeController',
             'controller/adminController',
-            'controller/registrationController'
+            'controller/registrationController',
+            'controller/candidateDetailsController'
         ],
         function (angular,ngFader
-                        ,crudService,candidateService
+                        ,crudService,candidateService,dataService
                         ,appController,homeController
-                        ,adminController,registrationController
+                        ,adminController,registrationController, candidateDetailsController
                     )
         {
             var moduleName = "app.modules";
             angular.module(moduleName,[])
 
                 // Services
-                .factory( "crudService", crudService)
-                .factory( "candidateService", candidateService)
+                .factory("crudService", crudService)
+                .factory("candidateService", candidateService)
+                .factory("dataService", dataService)
 
                 .directive('ngFader',ngFader)
 
@@ -33,6 +36,7 @@
                 .controller( "homeController", homeController)
                 .controller( "adminController", adminController)
                 .controller( "registrationController", registrationController)
+                .controller( "candidateDetailsController", candidateDetailsController)
 
                 console.log("Modules Loaded")
 

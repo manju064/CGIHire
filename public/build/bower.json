@@ -37,7 +37,8 @@
     "bootstrap-ui-datetime-picker": "~2.4.3",
     "angular-touch": "^1.6.1",
     "ng-dialog": "^1.0.0",
-    "angular-validation-ghiscoding":"~1.5.16"
+    "angular-validation-ghiscoding":"~1.5.16",
+    "angular-ui-grid":"~4.0.2"
   },
   "resolutions": {
     "angular": "~1.6.1"

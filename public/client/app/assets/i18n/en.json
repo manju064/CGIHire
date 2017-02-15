@@ -41,6 +41,7 @@
     "Decline":"Decline",
     "OK":"OK",
     "Cancel":"Cancel",
+    "Delete":"Delete",
     "TermsText":"<p><h3>Personal information collation statement</h3></p><p><b>Conditions for use of the Recruitment Event Registration Tool CGI Netherlands B.V. (Hereinafter CGI). </b></p><p>Your personal information will be considered confidential information and that information is used only for the purpose described below.</p><p>CGI is committed to the Dutch and European legislation on the use of personal data.</p><p><b>The purpose of the use of your data.</b></p><p>The purpose of the use of your personal data in the CGI Recruitment Event Registration Tool is to ease the chance of a career at CGI and to stay informed of our recruitment events. </p><p><b>Update and delete your personal data. </b></p><p>You can always remove your personal information from our database. That responsibility we leave to you. We will keep your data for a maximum period of one year or until you previously indicate that it is no longer desirable. </p><p>By accepting this statement you consent to saving your personal information.</p>",
     "ResetText":"<p><h3>Confirm Reset</h3></p><p>Are you sure? This will reset the form details</P>",
     "First_Name_Required":"First Name required",
@@ -51,5 +52,7 @@
     "Phone_Number_Min_Len":"Phone number must be atleast 9 digits",
     "INVALID_EMAIL":"Invalid emial",
     "Email_Address_Required":"Email Address required",
-    "Highest_Qualification_Required":"Highest Qualification required"
+    "Highest_Qualification_Required":"Highest Qualification required",
+    "RegisteredCandidates":"Registered Candidates",
+    "EditCandidateDetails":"Edit Candidate Details"
 } 

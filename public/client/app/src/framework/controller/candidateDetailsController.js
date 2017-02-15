@@ -1,5 +1,6 @@
 /**
- * Register the info Controller class with RequireJS
+ * Register the CandidateDetails Controller class with RequireJS
+ * This for update/remove candidate details
  */
 (function( define ) {
     "use strict";
@@ -11,42 +12,21 @@
             /**
              * @constructor
              */
-            var registrationController = function($scope, dataService, candidateService,$translate,ngDialog)
+            var candidateDetailsController = function($scope, dataService, candidateService, $uibModalInstance, $translate, grid, row)
             {
-                console.log("registration Controller Initialized");
+                console.log("Candidate Details Controller Initialized");
                 $scope.candidate = {};
 
                 //form name
                 $scope.regForm = {};
                 $scope.saveClicked = false;
-                
-                $scope.setTime = 3000;
-                $scope.responsive = true;
 
-                //List your images here. 
-                $scope.images =  [{
-                                    src: './assets/images/slides/CGI_banner_1.png',
-                                    alt: 'Add your image description here'
-                                    }, {
-                                    src: './assets/images/slides/CGI_banner_2.png',
-                                    alt: 'Add your image description here'
-                                    }, {
-                                    src: './assets/images/slides/CGI_banner_3.png',
-                                    alt: 'Add your image description here'
-                                    }, {
-                                    src: './assets/images/slides/CGI_banner_4.png',
-                                    alt: 'Add your image description here'
-                }];
-
-                $scope.termsText = $translate.instant('termsText');
-                
-                 //name are key's from language files
                 $scope.genders = [];
                 $scope.cgiContacts = [];
                 $scope.locations = [];
                 $scope.sectors = [];
                 $scope.roles = [];
-                
+
                 $scope.loadLookups = function(){
                     // #region Genders,
                     dataService.get('genders').then( (data) => {
@@ -88,11 +68,24 @@
                     });
                     // #endregion 
                 };
-    
+
                 $scope.loadLookups();
+                $scope.candidate = angular.copy(row.entity);
+                console.log("Candidate Details Controller candidate " + JSON.stringify($scope.candidate));
+
+                 $scope.formatLabel = function(model) {
+                    console.log("model " + model);
+                    for (var i=0; i< $scope.roles.length; i++) {
+                        if (model === $scope.roles[i].code) {
+                            return $scope.roles[i].name;
+                        }
+                    }
+                }
+                var qfDate = ($scope.candidate.qualificationDate == null || $scope.candidate.qualificationDate == undefined)?
+                                    new Date('2015-03-01T00:00:00Z') : $scope.candidate.qualificationDate;
 
                 $scope.gradDatePicker = {
-                    date: new Date('2015-03-01T00:00:00Z'),
+                    date:qfDate ,
                     Open:false,
                     Options: {
                         showWeeks: false,
@@ -131,79 +124,30 @@
                     }
                 };
 
-                $scope.candidate.roleId = undefined;
-
-                $scope.formatLabel = function(model) {
-                    console.log("model " + model);
-                    for (var i=0; i< $scope.roles.length; i++) {
-                        if (model === $scope.roles[i].code) {
-                            return $scope.roles[i].name;
-                        }
-                    }
-                }
-                $scope.OpenTerms = function(){
-                   console.log('Terms and conditions dialog open'); 
-                   ngDialog.openConfirm({
-                        template: 'termsDialog',
-                        className: 'ngdialog-theme-default custom-width',
-                        scope: $scope,
-                        closeByDocument: false,
-                        closeByEscape: false,
-                        cache: true,
-                    }).then(
-                        function(value) {
-                            //save the contact form
-                            //console.log('Terms and conditions accepted ' + value); 
-                            $scope.candidate.privacyDisclaimer = true;
-                        },
-                        function(value) {
-                            //Cancel or do nothing
-                            //console.log('Terms and conditions rejected ' + value); 
-                            $scope.candidate.privacyDisclaimer = false;
-                        }
-                    );
-                };
-
                 $scope.CalendarClick = function(e) {
                     //e.preventDefault();
                     //e.stopPropagation();
 
                     $scope.gradDatePicker.Open = !$scope.gradDatePicker.Open;
                 };
-                
-                $scope.saveCandidateDetails =  () => {
+                $scope.save = function(){
+                    //Update the record
                     // call save service;
-                    console.log("Inside saveCandidateDetails : save triggered...");
-
-                    console.log("Candidate " + JSON.stringify($scope.candidate));
-
+                    console.log("Candidate update" + JSON.stringify($scope.candidate));
                     candidateService.save($scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
                     });
 
                     $scope.saveClicked = true;
+                } 
+
+                $scope.remove = function(){
+                    //Remove from gird
+                    //Remove from DB
                 }
-
-               //reset the form 
-               $scope.reset = function() {
-                    ngDialog.openConfirm({
-                        template: 'confirmDialog',
-                        className: 'ngdialog-theme-default',
-                        width: 400,
-                        }).then( (value) => {
-                            $scope.candidate = {};
-                            $scope.regForm.$setPristine();
-                            $scope.regForm.$setUntouched();
-                            $scope.regForm.$setValidity();
-                            $scope.saveClicked = false;
-                            console.log('Reset confirmed:');
-                        },  (reason) => {
-                            console.log('Modal promise rejected. Reason: ', reason);
-                    });
-               }
             };
-
-            return ['$scope','dataService','candidateService', '$translate', 'ngDialog',registrationController];
+            
+            return ["$scope", 'dataService', 'candidateService', '$uibModalInstance', '$translate', 'grid', 'row', candidateDetailsController];
         });
 
 }( define ));

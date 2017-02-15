@@ -11,6 +11,7 @@ var candidateSchema = new Schema(
         phoneNumber:Number,
         emailId:String,
         highestQualification:String,
+        qualificationDate:Date,
         linkedInUrl:String,
         comment:String,
         preferredLocation:Number,
