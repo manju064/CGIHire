@@ -137,6 +137,7 @@
                     console.log("Candidate update" + JSON.stringify($scope.candidate));
                     candidateService.update($scope.candidate._id, $scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
+                        row.entity = angular.extend(row.entity, $scope.candidate);
                     });
 
                     $scope.saveClicked = true;
