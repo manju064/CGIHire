@@ -5,7 +5,9 @@ var candidateService = require('../controllers/Candidates'),
 module.exports = function(app, config) {
 
   app.get('/api/Candidates', candidateService.get);
- 
+  
+  app.get('/api/Candidates/format', candidateService.getFormatedData);
+
   app.post('/api/Candidates', candidateService.save);
 
   app.post('/api/Candidates/:Candidate_Id', candidateService.save);

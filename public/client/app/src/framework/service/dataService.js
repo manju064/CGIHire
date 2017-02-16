@@ -14,10 +14,10 @@
                 
                 //TODO, hardcoded for production inject via config files
                 //DEV Api
-                var apiUrl =  "http://localhost:8081/api";
+                //var apiUrl =  "http://localhost:8081/api";
                 
                 //Prod Api
-                //var apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
+                var apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
 
                 var url = apiUrl + "/Data";
                 var serviceFactory = {
@@ -45,16 +45,16 @@
                                 break;
                             case 'cgiContacts':
                                 data = [
-                                        {code:1, name:"Jolanda Phillipson"}
-                                        ,{code:2, name:"Stefan van der Wal"}
-                                        ,{code:3, name:"Joep Kokkeler"}
-                                        ,{code:4, name:"Joeri Taelman"}
-                                        ,{code:5, name:"Marnix de Bruin"}
-                                        ,{code:6, name:"Alexander Chatzizacharias"}
-                                        ,{code:7, name:"Yosuf Haydary"}
-                                        ,{code:8, name:"Manish Vashista"}
-                                        ,{code:9, name:"Romina Spies"}
-                                        ,{code:10, name:"Miltiadis Nedelkos"}
+                                        {code: 1, name: "Alexander Chatzizacharias"}
+                                        ,{code: 2, name: "Joep Kokkeler"}
+                                        ,{code: 3, name: "Joeri Taelman"}
+                                        ,{code: 4, name: "Jolanda Phillipson"}
+                                        ,{code: 5, name: "Manish Vashista "}
+                                        ,{code: 6, name: "Marnix de Bruin"}
+                                        ,{code: 7, name: "Miltiadis Nedelkos"}
+                                        ,{code: 8, name: "Romina Spies"}
+                                        ,{code: 9, name: "Stefan van der Wal"}
+                                        ,{code: 10, name: "Yosuf Haydary"}
                                     ];
                                 break;
                             case 'locations':

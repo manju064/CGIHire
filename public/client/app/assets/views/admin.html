@@ -1,5 +1,12 @@
+
 <div class="row">
-    <h3 translate="RegisteredCandidates"></h3>
+	<h4 translate="RegisteredCandidates"></h4>
+	<button type="button" class="btn btn-xs btn-primary" 
+			ng-csv="exportData" csv-header="reportHeader" 
+			csv-column-order = "reportHeader"
+			filename="RegisteredCandidates.csv">
+		<span translate="Export"></span>
+	</button>
 	<div id="serviceGrid" 
 		ui-grid-move-columns 
 		ui-grid-selection
@@ -10,6 +17,7 @@
 		ui-grid-edit
 		ui-grid="serviceGrid"></div>
 </div>
+
 <script type="text/ng-template" id="edit-button">
     <div class="ui-grid-cell-contents">
     <button type="button"

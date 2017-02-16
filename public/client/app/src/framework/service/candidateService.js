@@ -34,6 +34,18 @@
 
                         return deferred.promise;
                     },
+                    getFormatedData: function(){
+                        var deferred = $q.defer();
+                        $http.get(url + "/format")
+                            .then( (response) =>  {
+                                console.log('candidateService getFormatedData ' + JSON.stringify(response.data));
+                                deferred.resolve(response.data);
+                            }, (error) => {
+                                deferred.reject(error);
+                            });
+
+                        return deferred.promise;
+                    },
                     get: function (id) {
                         var deferred = $q.defer();
                         $http.get(url + '/' + id)

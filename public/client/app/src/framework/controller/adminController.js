@@ -35,18 +35,23 @@
                 $scope.GetAllCandidates();
                 
                 // #endregion    
-                $scope.GetCandidateDetails = function(id){
-                    console.log("admin Controller candidate id " + id);
-                    candidateService.get(id).then( (results) => {
-                        $scope.selectedCandidate = results.data;
-                        //$scope.isSelectedCandidate = true;
-                        console.log("selected candidate = " + JSON.stringify($scope.selectedcandidate));
+
+                //csv file needs data in format
+                $scope.exportData = [];
+
+                $scope.getExportData = function(){
+                    candidateService.getFormatedData().then( (data) => {
+                        console.log("getFormatedData data = " + JSON.stringify(data));
+                        angular.extend($scope.exportData, data);
                     }, (err) => {
-                         console.log("GetCandidateDetails Error = " + JSON.stringify(err));
+                            console.log('getFormatedData err ' + JSON.stringify(err));
                     });
                 }
-
-                
+               
+                $scope.getExportData();
+                $scope.reportHeader = [ "firstName", "lastName", "gender","emailId", "phoneNumber", "highestQualification", 
+                                        "qualificationDate",  "role", "linkedInUrl", "preferredLocation",
+                                         "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment"];
 
                 // #region Grid,
                 $scope.serviceGrid = {
