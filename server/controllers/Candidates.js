@@ -129,8 +129,8 @@ exports.getFormatedData = function(req, res){
                                "role": { $ifNull: [ "$roleMap.name", "" ] },
                                "sector":{ $ifNull: [ "$sectorMap.name", "" ] },
 							   "cgiContact":"$cgiContactMap.name",
-							   "privacyDisclaimer":13,
-                               "subscribeToNewsLetter":{ $ifNull: [ "$subscribeToNewsLetter", "" ] },	
+							   "privacyDisclaimer":{ $cond: [ { $eq: [ "$privacyDisclaimer", true ] }, 'Yes', 'No' ] },
+                               "subscribeToNewsLetter":{ $ifNull: [ { $cond: [ { $eq: [ "$subscribeToNewsLetter", true ] }, 'Yes', 'No' ] }, "No" ] },	
                                "comment":{ $ifNull: [ "$comment", "" ] },
                                 _id:0 
                             } 

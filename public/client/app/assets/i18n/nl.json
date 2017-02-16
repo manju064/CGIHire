@@ -57,5 +57,6 @@
     "Email_Address_Required":"E-mailadres vereist",
     "Highest_Qualification_Required":"Hoogste Kwalificatie vereist",
     "RegisteredCandidates":"Registered Kandidaten",
+     "RegisteredCandidatesFileName":"RegisteredKandidaten",
     "EditCandidateDetails":"Kandidaat Details bewerken"
 }

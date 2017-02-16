@@ -57,6 +57,7 @@
     "Email_Address_Required":"Email Address required",
     "Highest_Qualification_Required":"Highest Qualification required",
     "RegisteredCandidates":"Registered Candidates",
+    "RegisteredCandidatesFileName":"RegisteredCandidates",
     "EditCandidateDetails":"Edit Candidate Details"
     
 } 

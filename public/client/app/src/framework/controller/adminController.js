@@ -11,7 +11,7 @@
             /**
              * @constructor
              */
-            var adminController = function($scope, $uibModal, uiGridConstants, 
+            var adminController = function($scope, $filter, $uibModal, uiGridConstants, 
                                     candidateService, dataService, $translate)
             {
                 // #region init, 
@@ -38,6 +38,8 @@
 
                 //csv file needs data in format
                 $scope.exportData = [];
+                $scope.fileName = $translate.instant('RegisteredCandidatesFileName') 
+                                    + $filter('date')(new Date(), 'yyyyMMddHHmm') + '.csv';
 
                 $scope.getExportData = function(){
                     candidateService.getFormatedData().then( (data) => {
@@ -52,6 +54,23 @@
                 $scope.reportHeader = [ "firstName", "lastName", "gender","emailId", "phoneNumber", "highestQualification", 
                                         "qualificationDate",  "role", "linkedInUrl", "preferredLocation",
                                          "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment"];
+
+                 $scope.reportHeaderText = [ $translate.instant('First_Name')
+                                        ,$translate.instant('Last_Name')
+                                        ,$translate.instant('Gender')
+                                        ,$translate.instant('Email_Address')
+                                        ,$translate.instant('Phone_Number')
+                                        ,$translate.instant('Highest_Qualification')
+                                        ,$translate.instant('Graduation_Date')
+                                        ,$translate.instant('role')
+                                        ,$translate.instant('LinkedIn_URL')
+                                        ,$translate.instant('preferredLocation')
+                                        ,$translate.instant('subscribeToNewsLetter')
+                                        ,$translate.instant('terms') //privacyDisclaimer
+                                        ,$translate.instant('sector')
+                                        ,$translate.instant('cgiContact')
+                                        ,$translate.instant('comment')
+                                        ];
 
                 // #region Grid,
                 $scope.serviceGrid = {
@@ -78,17 +97,17 @@
                         cellTemplate: 'edit-button'
                     }, {
                         field : 'firstName',
-                        displayName : 'First Name',
+                        displayName : $translate.instant('First_Name'),
                         enableSorting : true,
                         enableCellEdit : false
                     }, {
                         field : 'lastName',
-                        displayName : 'Last Name',
+                        displayName : $translate.instant('Last_Name'),
                         enableSorting : true,
                         enableCellEdit : false
                     }, {
                         field : 'emailId',
-                        displayName : 'Email Id',
+                        displayName : $translate.instant('Email_Address'),
                         enableSorting : true,
                         enableCellEdit : false
                     } ];
@@ -112,7 +131,7 @@
 
             };
 
-            return ["$scope", '$uibModal', 'uiGridConstants','candidateService', 'dataService', '$translate', adminController];
+            return ["$scope", '$filter','$uibModal', 'uiGridConstants','candidateService', 'dataService', '$translate', adminController];
         });
 
 }( define ));

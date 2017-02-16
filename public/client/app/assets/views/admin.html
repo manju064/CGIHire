@@ -2,9 +2,9 @@
 <div class="row">
 	<h4 translate="RegisteredCandidates"></h4>
 	<button type="button" class="btn btn-xs btn-primary" 
-			ng-csv="exportData" csv-header="reportHeader" 
+			ng-csv="exportData" csv-header="reportHeaderText" 
 			csv-column-order = "reportHeader"
-			filename="RegisteredCandidates.csv">
+			filename="{{fileName}}">
 		<span translate="Export"></span>
 	</button>
 	<div id="serviceGrid" 
