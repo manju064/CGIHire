@@ -11,10 +11,9 @@ module.exports = {
   },
   production: {
     rootPath: rootPath,
-    //db: 'mongodb://CGI:CGIEvents2017@ds117109.mlab.com:17109/recruitment',
+    
     db: {
-        url: process.env.DB_URL || 'mongodb://CGI:CGIEvents2017@ds056419.mlab.com:56419/cgirecruitmentevent'
-        // "mongodb://ds056419.mlab.com:56419/cgirecruitmentevent",
+        url: process.env.DB_URL
     },
     port: process.env.PORT || 80,
   }
