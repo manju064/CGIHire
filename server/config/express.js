@@ -5,8 +5,8 @@ var express = require('express'),
     cons = require('consolidate'),
     path    = require("path"),
     session = require('express-session'),
-    favicon = require('serve-favicon');
-
+    favicon = require('serve-favicon'),
+    passport = require('passport');
 
 module.exports = function(app, config) {
   function compile(str, path) {
@@ -45,6 +45,10 @@ module.exports = function(app, config) {
   
   app.use(bodyParser.urlencoded({extended:true}));
   app.use(bodyParser.json());
+
+  app.use(session({secret: process.env.JWT || 'local', resave:false, saveUninitialized:false}));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   //TODO, required?
   /*var allowCrossDomain = function(req, res, next) {

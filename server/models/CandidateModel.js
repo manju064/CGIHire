@@ -28,4 +28,4 @@ var candidateSchema = new Schema(
 //module.exports = candidateModel;
 var collectionName = 'candidates';
   
-module.exports = mongoose.model('Candidate', candidateSchema, collectionName);
+exports = mongoose.model('Candidate', candidateSchema, collectionName);

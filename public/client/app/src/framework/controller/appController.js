@@ -12,13 +12,14 @@
              * AppController
              * @constructor
              */
-            var appController = function(crudService, $translate, tmhDynamicLocale, $state, $rootScope, $scope)
+            var appController = function(crudService, $translate, tmhDynamicLocale, $state, $rootScope, $scope, authService)
             {
                 console.log("AppController Initialized");
                 var _appModel = appModel.getInstance();
                 $rootScope.language = "nl";
                 //Update application init data
-
+                $rootScope.languageSelectionEnabled = false;
+                $rootScope.isLoggedIn = false;
                 tmhDynamicLocale.set($rootScope.language);
 
                 $rootScope.changeLanguage = function(langKey){
@@ -29,10 +30,27 @@
                 }
 
                 //After setting go to home state
-                $state.go('home');
+                $state.go('login');
+
+                $rootScope.signOut = function(){
+                     authService.logOut($scope.user).then(function(result){
+                        console.log('Logout successful ' + JSON.stringify(result));
+                        //TODO persist actual user clicked state and navigate
+                        //Might need to implement login model for cleaner implementation
+                        $rootScope.isLoggedIn = false;
+                        $rootScope.currentUser = "";
+                        $state.go('home');
+                    });
+                }
+
+                $rootScope.signIn = function() {
+                    $rootScope.isLoggedIn = false;
+                    $rootScope.currentUser = "";
+                    $state.go('login');
+                }
             };
 
-            return ['crudService', '$translate',  'tmhDynamicLocale', '$state','$rootScope', '$scope', appController];
+            return ['crudService', '$translate',  'tmhDynamicLocale', '$state','$rootScope', '$scope', 'authService', appController];
         });
 
 }( define ));

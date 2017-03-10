@@ -36,9 +36,25 @@
                         url: '/',
 
                         controller:"appController",
+                        data: {
+                            requireLogin: false
+                        }
                      }
                     )
+                    .state('login', {
 
+                        url: '/login',
+                        
+                        templateUrl :function(){
+                            return  viewDir + "login.html";
+                        },
+
+                        controller:"loginController",
+                        data: {
+                            requireLogin: false
+                        }
+                     }
+                    )
                     .state('home', {
 
                         url: '/home',
@@ -46,7 +62,10 @@
                         templateUrl :function(){
                             return  viewDir + "home.html";
                         },
-                        controller:"homeController"
+                        controller:"homeController",
+                        data: {
+                            requireLogin: false
+                        }
                     })
 
                     .state('admin', {
@@ -56,8 +75,10 @@
                         templateUrl :function(){
                             return  viewDir + "admin.html";
                         },
-                        controller:"adminController"
-
+                        controller:"adminController",
+                        data: {
+                            requireLogin: true
+                        }
                     })
 
                     .state('register', {
@@ -67,7 +88,10 @@
                         templateUrl :function(){
                             return  viewDir + "registration.html";
                         },
-                        controller:"registrationController"
+                        controller:"registrationController",
+                        data: {
+                            requireLogin: true
+                        }
                     })
             };
 

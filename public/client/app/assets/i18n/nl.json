@@ -1,4 +1,8 @@
 {
+    "Login":"Log in",
+    "Logout":"Uitloggen",
+    "Password":"Wachtwoord",
+    "Sign_In":"Aanmelden",
     "First_Name":"Voornaam",
     "First_Name_Hint":"voornaam",
     "Last_Name":"Achternaam",

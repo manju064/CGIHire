@@ -13,6 +13,7 @@ define(['angular'
         ,'ngSanitize'
         ,'ngCsv'
         ,'ngCookies'
+        ,'ngstorage'
         ,'ngTranslate'
         ,'ngTranslateLog'
         ,'ngTranslateMesFormat'
@@ -25,7 +26,7 @@ define(['angular'
         ,'framework/translationManager'
         ],
          function(angular, ngTouch, ngAnimate, ngDialog, uiRouter, uiBootstrapTpls, uiBootstrapDatetimePicr
-                    ,ngSanitize, ngCsv, ngCookies, ngTranslate, ngTranslateLog
+                    ,ngSanitize, ngCsv, ngCookies, ngstorage, ngTranslate, ngTranslateLog
                     ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale, ghiscodingValidation
                     ,uiGrid
                     ,modules, routeManager, translationManager) {
@@ -39,6 +40,7 @@ define(['angular'
         app = angular.module(appName, ['ngTouch'
                                         ,'ngAnimate',
                                         ,'ngDialog'
+                                        ,'ngStorage'
                                         ,'ghiscoding.validation'
                                         ,'ui.grid' 
                                         ,'ui.grid.moveColumns'
@@ -57,6 +59,17 @@ define(['angular'
 
         app.config(translationManager);
 
+       
+        app.run(function ($rootScope, $state, $localStorage) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+                var requireLogin = toState.data.requireLogin;
+                
+                if (requireLogin && typeof $localStorage.token === 'undefined') {
+                        event.preventDefault();
+                        $state.go('login');
+                }
+            });
+        });
         /*app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
         }]);

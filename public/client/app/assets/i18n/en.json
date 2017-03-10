@@ -1,4 +1,8 @@
 {
+    "Login":"Log In",
+    "Logout":"Log Out",
+    "Password":"Password",
+    "Sign_In":"Sign in",
     "First_Name":"First Name",
     "First_Name_Hint":"Enter First Name",
     "Last_Name":"Last Name",
@@ -58,6 +62,6 @@
     "Highest_Qualification_Required":"Highest Qualification required",
     "RegisteredCandidates":"Registered Candidates",
     "RegisteredCandidatesFileName":"RegisteredCandidates",
-    "EditCandidateDetails":"Edit Candidate Details"
-    
+    "EditCandidateDetails":"Edit Candidate Details",
+    "password_Required":"Please enter the password"  
 } 
