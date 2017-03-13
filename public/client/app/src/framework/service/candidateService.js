@@ -14,10 +14,10 @@
                 
                 //TODO, hardcoded for production inject via config files
                 //DEV Api
-                var apiUrl =  "http://localhost:8081/api";
+                //var apiUrl =  "http://localhost:8081/api";
                 
                 //Prod Api
-                //var apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
+                var apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
 
                 var url = apiUrl + "/candidates";
                 var serviceFactory = {
