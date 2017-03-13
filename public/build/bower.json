@@ -22,7 +22,6 @@
     "requirejs": "^2.3.2",
     "angular": "~1.6.1",
     "angular-cookies": "^1.6.1",
-    "angular-ui-router": "~0.2.18",
     "angular-animate": "^1.6.1",
     "messageformat": "~0.3.1",
     "angular-translate": "^2.13.0",
@@ -33,7 +32,6 @@
     "angular-sanitize": "^1.6.1",
     "angular-dynamic-locale": "^0.1.32",
     "angular-i18n": "^1.6.1",
-    "angular-bootstrap": "^2.4.0",
     "bootstrap-ui-datetime-picker": "~2.4.3",
     "angular-touch": "^1.6.1",
     "ng-dialog": "^1.0.0",
@@ -45,6 +43,8 @@
     "angular-bootstrap-lightbox":"^0.12.0"
   },
   "resolutions": {
-    "angular": "~1.6.1"
+    "angular": "~1.6.1",
+    "angular-ui-router": "~0.2.18",
+    "angular-bootstrap": "^2.4.0"
   }
 }
