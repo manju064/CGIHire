@@ -2,7 +2,9 @@
     "Login":"Log In",
     "Logout":"Log Out",
     "Password":"Password",
+    "Password_Hint":"******",
     "Sign_In":"Sign in",
+    "Event":"Event",
     "First_Name":"First Name",
     "First_Name_Hint":"Enter First Name",
     "Last_Name":"Last Name",
@@ -32,6 +34,8 @@
     "Home":"Home",
     "Admin":"Admin",
     "Register":"Register",
+    "Explore":"Explore",
+    "Media":"Media",
     "Search":"Search",
     "Search_Hint":"Search",
     "preferredLocation":"Preferred Location",
@@ -63,5 +67,6 @@
     "RegisteredCandidates":"Registered Candidates",
     "RegisteredCandidatesFileName":"RegisteredCandidates",
     "EditCandidateDetails":"Edit Candidate Details",
-    "password_Required":"Please enter the password"  
+    "password_Required":"Please enter the password",
+    "Event_Required":"Please select event"  
 } 

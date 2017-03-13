@@ -2,7 +2,9 @@
     "Login":"Log in",
     "Logout":"Uitloggen",
     "Password":"Wachtwoord",
+    "Password_Hint":"******",
     "Sign_In":"Aanmelden",
+    "Event":"Evenement",
     "First_Name":"Voornaam",
     "First_Name_Hint":"voornaam",
     "Last_Name":"Achternaam",
@@ -32,6 +34,8 @@
     "Home":"Home",
     "Admin":"Admin",
     "Register":"Geregistreerd",
+    "Explore":"onderzoeken",
+    "Media":"Media",
     "Search":"zoeken",
     "Search_Hint":"zoeken",
     "preferredLocation":"voorkeurslocatie",
@@ -61,6 +65,7 @@
     "Email_Address_Required":"E-mailadres vereist",
     "Highest_Qualification_Required":"Hoogste Kwalificatie vereist",
     "RegisteredCandidates":"Registered Kandidaten",
-     "RegisteredCandidatesFileName":"RegisteredKandidaten",
-    "EditCandidateDetails":"Kandidaat Details bewerken"
+    "RegisteredCandidatesFileName":"RegisteredKandidaten",
+    "EditCandidateDetails":"Kandidaat Details bewerken",
+    "Event_Required":"Selecteer event"
 }

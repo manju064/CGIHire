@@ -33,6 +33,8 @@ module.exports = function(app, config) {
   app.use('/src', express.static(clientAppPath + '/app/src'));
   app.use('/vendor', express.static(clientAppPath + '/vendor')); 
   app.use('/assets', express.static(clientAppPath + '/app/assets'));
+  app.use('/images', express.static(clientAppPath + '/app/assets/images'));
+  
   app.use('/bin', express.static(__dirname + '/../../public/bin'));
   //app.use(favicon(config.clientAppPath  + '/assets/images/favicon.ico'));
   

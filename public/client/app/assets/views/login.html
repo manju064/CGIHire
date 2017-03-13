@@ -20,10 +20,19 @@
                             <label for="inputPassword3" class="col-sm-4 control-label" translate="Password"></label>
                             <div class="col-sm-8">
                                 <input type="password" name ="password" class="form-control" id="inputPassword" 
-                                       ng-model = "user.password" placeholder="{{ 'password_Hint' | translate }}"
+                                       ng-model = "user.password" placeholder="{{ 'Password_Hint' | translate }}"
                                        validation="password|required:alt={{ 'password_Required' | translate }}"></input>
                             </div>
                         </div>
+                         <div class="form-group required">
+				            <label for="Event" class="col-sm-4 control-label" translate="Event"></label>
+                             <div class="col-sm-8">
+                                <select id="Event" name ="Event" class="form-control" ng-model="event" 
+                                    ng-options="event as event.name for event in events"
+                                    validation="required:alt={{ 'Event_Required' | translate }}">
+                                </select>
+                             </div>
+                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-4 col-sm-9">
                                 <button type="button" ng-click="login()" class="btn btn-success btn-sm" translate="Sign_In"></button>

@@ -47,6 +47,18 @@ h1 {
     margin-left: 4px;
 }
 
+.navbar-text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    padding: 1%;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
 .login { 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -60,6 +72,58 @@ h1 {
 }
 .form-group.last {
  margin-bottom:0px;
+}
+
+
+/* CSS used here will be applied after bootstrap.css */
+.dynamicTile .col-sm-2.col-xs-4{
+    padding:5px;
+}
+
+.dynamicTile .col-sm-4.col-xs-8{
+    padding:5px;
+}
+
+#tile3{
+    background: rgb(0,93,233);
+}
+
+.tilecaption{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%); 
+    margin:0!important;
+    text-align: center;
+    color:white;
+    font-family: Segoe UI;
+    font-weight: lighter;
+}
+.talk {
+    background: #9E0033 url('/images/explore/bg-input-poll-02.png') repeat-x 0 0;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.cgi-expert-cont {
+    width: 152px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.tile:hover {
+	cursor:pointer;
+	background: #5B6E7B;
+    box-shadow: 0 1px 8px #5B6E7B;
+}
+
+body {
+	background: #ecf0f1;
 }
 
 /*	Making the header responsive. Remove these styles, if

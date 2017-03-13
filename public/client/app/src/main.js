@@ -10,6 +10,8 @@ define(['angular'
         ,'uiRouter'
         ,'uiBootstrapTpls'
         ,'uiBootstrapDatetimePicr'
+        ,'ngVideosharingEmbed'
+        ,'bootstrapLightbox'
         ,'ngSanitize'
         ,'ngCsv'
         ,'ngCookies'
@@ -26,7 +28,8 @@ define(['angular'
         ,'framework/translationManager'
         ],
          function(angular, ngTouch, ngAnimate, ngDialog, uiRouter, uiBootstrapTpls, uiBootstrapDatetimePicr
-                    ,ngSanitize, ngCsv, ngCookies, ngstorage, ngTranslate, ngTranslateLog
+                    ,ngVideosharingEmbed,bootstrapLightbox, ngSanitize, ngCsv
+                     ,ngCookies, ngstorage, ngTranslate, ngTranslateLog
                     ,ngTranslateMesFormat, ngTranslateLoaderStaticFiles, tmhDynamicLocale, ghiscodingValidation
                     ,uiGrid
                     ,modules, routeManager, translationManager) {
@@ -48,6 +51,8 @@ define(['angular'
                                         ,'ui.grid.resizeColumns'
                                         ,'ui.bootstrap'
                                         ,'ui.bootstrap.datetimepicker'
+                                        ,'videosharing-embed'
+                                        ,'bootstrapLightbox'
                                         ,'ui.router'
                                         ,'ngSanitize'
                                         ,'ngCsv'
@@ -63,7 +68,7 @@ define(['angular'
         app.run(function ($rootScope, $state, $localStorage) {
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
                 var requireLogin = toState.data.requireLogin;
-                
+                console.log('$localStorage.token' + JSON.stringify($localStorage.token));
                 if (requireLogin && typeof $localStorage.token === 'undefined') {
                         event.preventDefault();
                         $state.go('login');

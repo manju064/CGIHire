@@ -1,0 +1,14 @@
+<div class="container dynamicTile">
+    <div class="row" >
+        <div class="col-sm-2 col-xs-4" ng-repeat="video in videos">
+            <div id="tile3" class="tile">
+            <div class="item">
+            <a ng-click="openLightboxModal($index)"> 
+                <img ng-src="{{video.thumbUrl}}" class="img-responsive">
+                <div class="talk">{{video.caption}}</div>
+                </div>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,13 +15,16 @@
             'controller/adminController',
             'controller/registrationController',
             'controller/candidateDetailsController',
-            'controller/loginController'
+            'controller/loginController',
+            'controller/exploreController',
+            'controller/mediaController'            
         ],
         function (angular,ngFader
                         ,crudService,candidateService,dataService,authService 
                         ,appController,homeController
                         ,adminController,registrationController, 
                         candidateDetailsController,loginController
+                        ,exploreController, mediaController
                     )
         {
             var moduleName = "app.modules";
@@ -42,6 +45,8 @@
                 .controller( "registrationController", registrationController)
                 .controller( "candidateDetailsController", candidateDetailsController)
                 .controller( "loginController", loginController)
+                .controller( "exploreController", exploreController)
+                .controller( "mediaController", mediaController)
 
                 console.log("Modules Loaded")
 

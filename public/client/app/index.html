@@ -12,6 +12,7 @@
 
   <!-- bootstrap style theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../vendor/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -48,6 +49,7 @@
           <span class="icon-bar"></span>
         </button>
       <img src="./assets/images/cgi-logo_large.png" class="navbar-brand" ui-sref="#" />
+      <span class="navbar-text"><b>{{selectedEvent.name}}</b></span>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,6 +57,12 @@
       <ul class="nav navbar-nav">
         <li>
           <a ui-sref="home" translate="Home"></a>
+        </li>
+        <li>
+          <a ui-sref="explore" translate="Explore"></a>
+        </li>
+        <li>
+          <a ui-sref="media" translate="Media"></a>
         </li>
         <li>
           <a ui-sref="admin" translate="Admin"></a>
@@ -65,7 +73,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right" >
-        <li><span>{{ currentUser.name }}</span>
+        <li>
+        <span>{{ currentUser.name }} </span>
         <button type="submit" class="btn navbar-btn btn-xs btn-success" 
             name="logout" id="logout"  ng-click="signIn()" ng-show="!isLoggedIn" translate="Login"></button>
             <button type="submit" class="btn navbar-btn btn-xs btn-danger" 

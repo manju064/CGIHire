@@ -231,6 +231,12 @@
                                         {code:142, name:"Non of the above"}
                                 ];
                                 break;
+                             case 'events':
+                                data =  [
+                                        {code:1, name:"TECH20"},
+                                        {code:2, name:"Mobile dev summit"}
+                                ];
+                                break;
                             default:
                                 console.log("Invalid lookup code")
                                 break;

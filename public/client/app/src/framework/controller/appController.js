@@ -21,6 +21,11 @@
                 $rootScope.languageSelectionEnabled = false;
                 $rootScope.isLoggedIn = false;
                 tmhDynamicLocale.set($rootScope.language);
+                
+                $scope.selectedEvent = {};
+                
+                //Remove token on start of application
+                authService.removeToken();
 
                 $rootScope.changeLanguage = function(langKey){
                     console.log("AppController change Language " + langKey);

@@ -93,6 +93,30 @@
                             requireLogin: true
                         }
                     })
+                     .state('explore', {
+
+                        url: '/explore',
+
+                        templateUrl :function(){
+                            return  viewDir + "explore.html";
+                        },
+                        controller:"exploreController",
+                        data: {
+                            requireLogin: false
+                        }
+                    })
+                    .state('media', {
+
+                        url: '/media',
+
+                        templateUrl :function(){
+                            return  viewDir + "media.html";
+                        },
+                        controller:"mediaController",
+                        data: {
+                            requireLogin: false
+                        }
+                    })
             };
 
             return ["$stateProvider", "$urlRouterProvider",'$locationProvider', RouteManager];
