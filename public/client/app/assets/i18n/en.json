@@ -78,5 +78,6 @@
     "RegisteredCandidatesFileName":"RegisteredCandidates",
     "EditCandidateDetails":"Edit Candidate Details",
     "password_Required":"Please enter the password",
-    "Event_Required":"Please select event"  
+    "Event_Required":"Please select event",
+    "potential_Required":"Please select potential option"  
 } 

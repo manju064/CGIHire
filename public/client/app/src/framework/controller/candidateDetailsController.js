@@ -94,7 +94,7 @@
                 $scope.candidate = angular.copy(row.entity);
 
                 //TODO Dumb logic, store key values
-                if($scope.candidate.languages ! = undefined && $scope.candidate.languages !=null){
+                if($scope.candidate.languages != undefined && $scope.candidate.languages !=null){
                     lodash.forEach($scope.Languages, function(item) {
                         $scope.candidate.languages.indexOf(item.label);
                         item.selected = true;
