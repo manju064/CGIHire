@@ -127,7 +127,7 @@
 				<textarea placeholder="{{ 'Comment_Hint' | translate }}" rows="2" class="form-control"
 				 id="comment" ng-model="candidate.comment"></textarea>
 			</div>
-			<div class="col-sm-2 form-group pull-right">
+			<div class="col-sm-2 form-group required pull-right">
 				<label for="potential" class="control-label" translate="potential"></label>
 				<select id="potential" name ="potential" class="form-control" ng-model="candidate.potential" 
 						ng-options="item.code as item.name for item in potentialOptions"

@@ -125,7 +125,6 @@ exports.getFormatedData = function(req, res){
                 { $project: {  "firstName":1,
                                "lastName":2,
                                "emailId":3,
-                               "gender":4,
                                "phoneNumber":{ $ifNull: [ "$phoneNumber", "" ] },
                                "highestQualification":{ $ifNull: [ "$highestQualification", "" ] },
                                "qualificationDate":{ $ifNull: [ "$qualificationDate", "" ] },
