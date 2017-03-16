@@ -12,7 +12,7 @@
             /**
              * @constructor
              */
-            var candidateDetailsController = function($scope, dataService, candidateService, $uibModalInstance, $translate, grid, row, lodash)
+            var candidateDetailsController = function($rootScope, $scope, dataService, candidateService, $uibModalInstance, $translate, grid, row, lodash)
             {
                 console.log("Candidate Details Controller Initialized");
                 $scope.candidate = {};
@@ -196,7 +196,7 @@
                 }
             };
             
-            return ["$scope", 'dataService', 'candidateService', '$uibModalInstance', '$translate', 'grid', 'row', 'lodash', candidateDetailsController];
+            return ['$rootScope', "$scope", 'dataService', 'candidateService', '$uibModalInstance', '$translate', 'grid', 'row', 'lodash', candidateDetailsController];
         });
 
 }( define ));

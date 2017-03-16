@@ -34,6 +34,12 @@
                             'url': 'https://www.youtube.com/watch?v=-yUqoprrNzs',
                             'thumbUrl': 'http://img.youtube.com/vi/-yUqoprrNzs/0.jpg' ,
                             'caption': 'Dream inspired. Client driven.'
+                        },
+                         {
+                            'type': 'video',
+                            'url': 'https://youtu.be/OeNjKbUnUyA',
+                            'thumbUrl': 'http://img.youtube.com/vi/OeNjKbUnUyA/0.jpg' ,
+                            'caption': 'Hello World: een sfeerimpressie | CGI Nederland'
                         }
                 ];
 
