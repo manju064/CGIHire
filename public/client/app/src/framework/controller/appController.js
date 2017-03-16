@@ -44,6 +44,7 @@
                         //Might need to implement login model for cleaner implementation
                         $rootScope.isLoggedIn = false;
                         $rootScope.currentUser = "";
+                        $rootScope.selectedEvent = null;
                         $state.go('home');
                     });
                 }
