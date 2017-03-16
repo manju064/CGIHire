@@ -29,6 +29,12 @@
                             'thumbUrl': 'http://img.youtube.com/vi/f-8X9p1o5UY/0.jpg' ,
                             'caption': 'SpaceX Hyperloop'
                         },
+                         {
+                            'type': 'video',
+                            'url': 'https://www.youtube.com/watch?v=-yUqoprrNzs',
+                            'thumbUrl': 'http://img.youtube.com/vi/-yUqoprrNzs/0.jpg' ,
+                            'caption': 'Dream inspired. Client driven.'
+                        }
                 ];
 
                 $scope.openLightboxModal = function (index) {

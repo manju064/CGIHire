@@ -23,7 +23,7 @@
                 //crudServiceFactory.apiUrl =  "http://localhost:8081/api";
                 
                 //Prod Api
-                //crudServiceFactory.apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
+                crudServiceFactory.apiUrl =  "https://cgirecruitment.azurewebsites.net/api";
 
                 crudServiceFactory.get = function (url) {
                      $http.get(url)

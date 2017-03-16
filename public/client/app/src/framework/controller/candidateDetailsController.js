@@ -12,7 +12,7 @@
             /**
              * @constructor
              */
-            var candidateDetailsController = function($scope, dataService, candidateService, $uibModalInstance, $translate, grid, row)
+            var candidateDetailsController = function($scope, dataService, candidateService, $uibModalInstance, $translate, grid, row, lodash)
             {
                 console.log("Candidate Details Controller Initialized");
                 $scope.candidate = {};
@@ -26,17 +26,33 @@
                 $scope.locations = [];
                 $scope.sectors = [];
                 $scope.roles = [];
+                $scope.potentialOptions = [];
+                $scope.skills =[];            
+                $scope.selectedSkills =[];
+                $scope.skillsSettings = {
+                    showCheckAll: false,
+                    showUncheckAll:true,
+                    keyboardControls: true,
+                    enableSearch: true,
+                    styleActive: true,
+                    scrollableHeight: '150px',
+	                scrollable: true,
+                    selectionCount:'skills'
+                };    
 
+                $scope.Languages = [
+                        {label: 'English', selected: true},
+                        {label: 'Dutch', selected: false},
+                ];
+                    
                 $scope.loadLookups = function(){
-                    // #region Genders,
-                    dataService.get('genders').then( (data) => {
-                        angular.extend($scope.genders, data);
-                    }, (err) => {
-                            console.log('Genders err ' + JSON.stringify(err));
-                    });
-                    // #endregion 
-
                     // #region cgiContacts,
+                    dataService.get('potentialOptions').then( (data) => {
+                        angular.extend($scope.potentialOptions, data);
+                    }, (err) => {
+                            console.log('potentialOptions err ' + JSON.stringify(err));
+                    });
+                    
                     dataService.get('cgiContacts').then( (data) => {
                         angular.extend($scope.cgiContacts, data);
                     }, (err) => {
@@ -66,21 +82,36 @@
                     }, (err) => {
                             console.log('roles err ' + JSON.stringify(err));
                     });
+                    dataService.get('skills').then( (data) => {
+                        angular.extend($scope.skills, data);
+                    }, (err) => {
+                            console.log('skills err ' + JSON.stringify(err));
+                    });
                     // #endregion 
                 };
 
                 $scope.loadLookups();
                 $scope.candidate = angular.copy(row.entity);
+
+                //TODO Dumb logic, store key values
+                if($scope.candidate.languages ! = undefined && $scope.candidate.languages !=null){
+                    lodash.forEach($scope.Languages, function(item) {
+                        $scope.candidate.languages.indexOf(item.label);
+                        item.selected = true;
+                    });
+                }
+
                 console.log("Candidate Details Controller candidate " + JSON.stringify($scope.candidate));
 
-                 $scope.formatLabel = function(model) {
+                 $scope.formatRolesLabel = function(model) {
                     console.log("model " + model);
                     for (var i=0; i< $scope.roles.length; i++) {
                         if (model === $scope.roles[i].code) {
                             return $scope.roles[i].name;
                         }
                     }
-                }
+                 }
+               
                 var qfDate = ($scope.candidate.qualificationDate == null || $scope.candidate.qualificationDate == undefined)?
                                     new Date('2015-03-01T00:00:00Z') : $scope.candidate.qualificationDate;
 
@@ -134,6 +165,14 @@
                 $scope.save = function(){
                     //Update the record
                     // call save service;
+                    $scope.candidate.eventId = $rootScope.selectedEvent.code;
+                    $scope.candidate.skills = $scope.selectedSkills;
+                    var lang = [];
+                    lodash.forEach($scope.Languages, function(item) {
+                        lang.push(item.label);
+                    });
+                    $scope.candidate.languages = lang.join(',');
+
                     console.log("Candidate update" + JSON.stringify($scope.candidate));
                     candidateService.update($scope.candidate._id, $scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
@@ -157,7 +196,7 @@
                 }
             };
             
-            return ["$scope", 'dataService', 'candidateService', '$uibModalInstance', '$translate', 'grid', 'row', candidateDetailsController];
+            return ["$scope", 'dataService', 'candidateService', '$uibModalInstance', '$translate', 'grid', 'row', 'lodash', candidateDetailsController];
         });
 
 }( define ));

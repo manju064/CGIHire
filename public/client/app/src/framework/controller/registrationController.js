@@ -11,11 +11,11 @@
             /**
              * @constructor
              */
-            var registrationController = function($scope, $state, dataService, candidateService,$translate,ngDialog)
+            var registrationController = function($rootScope, $scope, $state, dataService, candidateService,$translate,ngDialog,lodash)
             {
                 console.log("registration Controller Initialized");
                 $scope.candidate = {};
-
+                $scope.candidate.skills = [];
                 //form name
                 $scope.regForm = {};
                 $scope.saveClicked = false;
@@ -46,17 +46,32 @@
                 $scope.locations = [];
                 $scope.sectors = [];
                 $scope.roles = [];
+                $scope.potentialOptions = [];
+                $scope.skills =[];            
+                $scope.selectedSkills =[];
+                $scope.skillsSettings = {
+                    showCheckAll: false,
+                    showUncheckAll:true,
+                    keyboardControls: true,
+                    enableSearch: true,
+                    styleActive: true,
+                    scrollableHeight: '150px',
+	                scrollable: true,
+                    selectionCount:'skills'
+                };    
+
+                $scope.Languages = [
+                        {label: 'English', selected: true},
+                        {label: 'Dutch', selected: false},
+                ];
                 
                 $scope.loadLookups = function(){
-                    // #region Genders,
-                    dataService.get('genders').then( (data) => {
-                        angular.extend($scope.genders, data);
-                    }, (err) => {
-                            console.log('Genders err ' + JSON.stringify(err));
-                    });
-                    // #endregion 
-
                     // #region cgiContacts,
+                    dataService.get('potentialOptions').then( (data) => {
+                        angular.extend($scope.potentialOptions, data);
+                    }, (err) => {
+                            console.log('potentialOptions err ' + JSON.stringify(err));
+                    });
                     dataService.get('cgiContacts').then( (data) => {
                         angular.extend($scope.cgiContacts, data);
                     }, (err) => {
@@ -85,6 +100,11 @@
                         angular.extend($scope.roles, data);
                     }, (err) => {
                             console.log('roles err ' + JSON.stringify(err));
+                    });
+                    dataService.get('skills').then( (data) => {
+                        angular.extend($scope.skills, data);
+                    }, (err) => {
+                            console.log('skills err ' + JSON.stringify(err));
                     });
                     // #endregion 
                 };
@@ -133,7 +153,7 @@
 
                 $scope.candidate.roleId = undefined;
 
-                $scope.formatLabel = function(model) {
+                $scope.formatRolesLabel = function(model) {
                     console.log("model " + model);
                     for (var i=0; i< $scope.roles.length; i++) {
                         if (model === $scope.roles[i].code) {
@@ -141,6 +161,15 @@
                         }
                     }
                 }
+                $scope.formatSkillLabel = function(model) {
+                    console.log("model " + model);
+                    for (var i=0; i< $scope.roles.length; i++) {
+                        if (model === $scope.roles[i].code) {
+                            return $scope.roles[i].name;
+                        }
+                    }
+                }
+
                 $scope.OpenTerms = function(){
                    console.log('Terms and conditions dialog open'); 
                    ngDialog.openConfirm({
@@ -152,7 +181,6 @@
                         cache: true,
                     }).then(
                         function(value) {
-                            //save the contact form
                             //console.log('Terms and conditions accepted ' + value); 
                             $scope.candidate.privacyDisclaimer = true;
                         },
@@ -162,24 +190,30 @@
                             $scope.candidate.privacyDisclaimer = false;
                         }
                     );
-                };
+                }
 
                 $scope.CalendarClick = function(e) {
                     //e.preventDefault();
                     //e.stopPropagation();
 
                     $scope.gradDatePicker.Open = !$scope.gradDatePicker.Open;
-                };
+                }
                 
                 $scope.saveCandidateDetails =  () => {
                     // call save service;
                     console.log("Inside saveCandidateDetails : save triggered...");
 
-                    console.log("Candidate " + JSON.stringify($scope.candidate));
+                    $scope.candidate.eventId = $rootScope.selectedEvent.code;
+                    $scope.candidate.skills = $scope.selectedSkills;
 
-                    candidateService.save($scope.candidate).then(function(result){
+                   var lang = [];
+                   lodash.forEach($scope.Languages, function(item) {
+                        lang.push(item.label);
+                   });
+                   $scope.candidate.languages = lang.join(',');
+
+                   candidateService.save($scope.candidate).then(function(result){
                         console.log('save result ' + JSON.stringify(result));
-                        
                         ngDialog.openConfirm({
                             template: 'registerConfDialog',
                             className: 'ngdialog-theme-default',
@@ -192,10 +226,10 @@
                             console.log('Modal promise rejected. Reason: ', reason);
                         });
                     });
-               }
+                }
 
                //reset the form 
-               $scope.reset = function() {
+                $scope.reset = function() {
                     ngDialog.openConfirm({
                         template: 'confirmDialog',
                         className: 'ngdialog-theme-default',
@@ -210,10 +244,10 @@
                         },  (reason) => {
                             console.log('Modal promise rejected. Reason: ', reason);
                     });
-               }
+                }
             };
 
-            return ['$scope','$state','dataService','candidateService', '$translate', 'ngDialog',registrationController];
+            return ['$rootScope','$scope','$state','dataService','candidateService', '$translate', 'ngDialog', 'lodash', registrationController];
         });
 
 }( define ));

@@ -17,7 +17,7 @@
                 console.log("LoginController Initialized");
                 $scope.user = {};
                 $scope.events = [];
-                $scope.event = {};
+                $scope.event = undefined;
 
                 // #region sectors,
                 dataService.get('events').then( (data) => {

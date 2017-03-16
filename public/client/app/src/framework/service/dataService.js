@@ -233,9 +233,48 @@
                                 break;
                              case 'events':
                                 data =  [
-                                        {code:1, name:"TECH20"},
-                                        {code:2, name:"Mobile dev summit"}
+                                        {code:2, name:"Nationale Carriere Beurs"}
                                 ];
+                                break;
+                            case 'potentialOptions':
+                                data = [{code: "High", name:"High"}
+                                        ,{code: "Medium", name:"Medium"}
+                                        ,{code: "Low", name:"Low"}];
+                                break;
+                            case 'skills':
+                                data =[ 
+                                        {id: 1, label:"Cloud"},
+                                        {id: 2, label:"Big Data"},
+                                        {id: 3, label:"Esri"},
+                                        {id: 4, label:"UX"},
+                                        {id: 5, label:"GEO"},
+                                        {id: 6, label:"Citrix"},
+                                        {id: 7, label:"Functioneel testen"},
+                                        {id: 8, label:"Smallworld"},
+                                        {id: 9, label:"Java"},
+                                        {id: 10, label:"Red Hat"},
+                                        {id: 11, label:"Linux"},
+                                        {id: 12, label:"LAN"},
+                                        {id: 13, label:"WAN"},
+                                        {id: 14, label:"Tibco"},
+                                        {id: 15, label:"SOA"},
+                                        {id: 16, label:"IOS"},
+                                        {id: 17, label:"MES"},
+                                        {id: 18, label:"MS Cloud"},
+                                        {id: 19, label:"Pega"},
+                                        {id: 20, label:"SAP"},
+                                        {id: 21, label:"Microsoft"},
+                                        {id: 22, label:"SAP HANA"},
+                                        {id: 23, label:"SAP Hybris"},
+                                        {id: 24, label:"SAP ME"},
+                                        {id: 25, label:"Cyber security"},
+                                        {id: 26, label:"Technisch testen"},
+                                        {id: 27, label:"Agile"},
+                                        {id: 28, label:"Bleuriq"},
+                                        {id: 29, label:"C#"},
+                                        {id: 30, label:".Net"},
+                                        {id: 31, label:"ETL"}
+                                    ];
                                 break;
                             default:
                                 console.log("Invalid lookup code")

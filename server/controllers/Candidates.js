@@ -22,7 +22,6 @@ exports.save = function(req, res) {
     //TODO, don't we have better way ?
     newCandidate.firstName = req.body.firstName;
     newCandidate.lastName = req.body.lastName;
-    newCandidate.gender = req.body.gender;
     newCandidate.phoneNumber = req.body.phoneNumber;
     newCandidate.emailId = req.body.emailId;
     newCandidate.highestQualification = req.body.highestQualification;
@@ -35,8 +34,14 @@ exports.save = function(req, res) {
     newCandidate.sectorId = req.body.sectorId !=null && req.body.sectorId !=undefined ? req.body.sectorId:17;
     newCandidate.subscribeToNewsLetter = req.body.subscribeToNewsLetter;
     newCandidate.privacyDisclaimer = req.body.privacyDisclaimer;
-    newCandidate.eventId = 1;
+    newCandidate.eventId = req.body.eventId;
+    newCandidate.potential = req.body.potential;
+    newCandidate.certification = req.body.certification;
+    newCandidate.certificationName = req.body.certificationName;
     newCandidate.cgiContactId = req.body.cgiContactId;
+    newCandidate.currentRole = req.body.currentRole;
+    newCandidate.skills = req.body.skills;
+    newCandidate.languages = req.body.languages;
 
     if( req.params.Candidate_Id == null || req.params.Candidate_Id == undefined){
         Create(newCandidate);

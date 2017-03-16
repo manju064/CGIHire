@@ -5,7 +5,15 @@
                 <div class="panel-heading"> <strong translate="Login"></strong>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                     <div class="alert alert-danger alert-dismissable" 
+                        ng-show="loginForm.$submitted && loginForm.$invalid && !loginForm.$pristine">
+                        <h4><strong>ERRORS!</strong></h4>
+                        <ul>
+                            <li ng-repeat="item in loginForm.$validationSummary">{{ item.field }}: {{item.message}}</li>
+                        </ul>
+                    </div>
+                    <form class="form-horizontal" role="form" name="loginForm" novalidate 
+                            ng-submit="loginForm.$valid && login()">
                         <div class="form-group required">
                             <label for="inputEmail" class="col-sm-4 control-label" translate="Email_Address"></label>
                             <div class="col-sm-8">
@@ -32,10 +40,10 @@
                                     validation="required:alt={{ 'Event_Required' | translate }}">
                                 </select>
                              </div>
-                         </div>
-                        <div class="form-group last">
+                         </div> 
+                        <div class="form-actions form-group last">
                             <div class="col-sm-offset-4 col-sm-9">
-                                <button type="button" ng-click="login()" class="btn btn-success btn-sm" translate="Sign_In"></button>
+                                <button type="submit" class="btn btn-success btn-sm" translate="Sign_In"></button>
                             </div>
                         </div>
                     </form>

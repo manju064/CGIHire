@@ -7,7 +7,7 @@ var candidateSchema = new Schema(
         _id: Number,
         firstName:String,
         lastName:String,
-        gender:String,
+        languages:String,
         phoneNumber:Number,
         emailId:String,
         highestQualification:String,
@@ -20,7 +20,12 @@ var candidateSchema = new Schema(
         subscribeToNewsLetter:{ type: Boolean, default:false },
         privacyDisclaimer:{ type: Boolean, default:false },
         eventId:Number,
-        cgiContactId:Number
+        cgiContactId:Number,
+        potential:String,
+        certification:{ type: Boolean, default:false },
+        certificationName:String,
+        currentRole:String,
+        skills:{ type: [] },
     },
     { _id: false }
 );
