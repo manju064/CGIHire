@@ -208,7 +208,7 @@
 
                    var lang = [];
                    lodash.forEach($scope.Languages, function(item) {
-                       if(item.selected)
+                       if(item.selected ==="true")
                             lang.push(item.label);
                    });
                    $scope.candidate.languages = lang.join(',');
