@@ -172,7 +172,8 @@
                     $scope.candidate.skills = $scope.selectedSkills;
                     var lang = [];
                     lodash.forEach($scope.Languages, function(item) {
-                        lang.push(item.label);
+                        if(item.selected)
+                            lang.push(item.label);
                     });
                     $scope.candidate.languages = lang.join(',');
 
