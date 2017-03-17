@@ -21,13 +21,14 @@
                 $scope.regForm = {};
                 $scope.saveClicked = false;
 
-                $scope.genders = [];
+                $scope.candidate = angular.copy(row.entity);
+
                 $scope.cgiContacts = [];
                 $scope.locations = [];
                 $scope.sectors = [];
                 $scope.roles = [];
                 $scope.potentialOptions = [];
-                $scope.skills =[];            
+                $scope.skills =[];        
                 $scope.selectedSkills =[];
                 $scope.skillsSettings = {
                     showCheckAll: false,
@@ -44,7 +45,10 @@
                         {label: 'English', selected: true},
                         {label: 'Dutch', selected: false},
                 ];
-                    
+                
+                if($scope.candidate.skills !=undefined && $scope.candidate.skills !=null)
+                    $scope.selectedSkills = $scope.candidate.skills;
+
                 $scope.loadLookups = function(){
                     // #region cgiContacts,
                     dataService.get('potentialOptions').then( (data) => {
@@ -91,7 +95,6 @@
                 };
 
                 $scope.loadLookups();
-                $scope.candidate = angular.copy(row.entity);
 
                 //TODO Dumb logic, store key values
                 if($scope.candidate.languages != undefined && $scope.candidate.languages !=null){
@@ -173,9 +176,9 @@
                     });
                     $scope.candidate.languages = lang.join(',');
 
-                    console.log("Candidate update" + JSON.stringify($scope.candidate));
+                   // console.log("Candidate update" + JSON.stringify($scope.candidate));
                     candidateService.update($scope.candidate._id, $scope.candidate).then(function(result){
-                        console.log('save result ' + JSON.stringify(result));
+                        //console.log('save result ' + JSON.stringify(result));
                         row.entity = angular.extend(row.entity, $scope.candidate);
                     });
 

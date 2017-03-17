@@ -45,30 +45,29 @@
                                 break;
                             case 'cgiContacts':
                                 data = [
-                                        {code:"1", name:"Michael Matthijsen"},
-                                        {code:"2", name:"Jolanda Phillipson"},
-                                        {code:"3", name:"Romina Spiess"},
-                                        {code:"4", name:"Lisette Klok "},
-                                        {code:"5", name:"Nicolas Castellon"},
-                                        {code:"6", name:"Marnix de Bruin"},
-                                        {code:"7", name:"Ronny Kooi"},
-                                        {code:"8", name:"Jeroen Van Olderen "},
-                                        {code:"9", name:"Mark Drost "},
-                                        {code:"10", name:"Adjai Narain"},
-                                        {code:"11", name:"Renk Stienstra"},
-                                        {code:"12", name:"Tiemo Potze "},
-                                        {code:"13", name:"Ana Paula Waaijenberg"},
-                                        {code:"15", name:"Pim Waaijenberg"},
-                                        {code:"17", name:"Idris Khan"},
-                                        {code:"18", name:"Jamie de Jong"},
-                                        {code:"19", name:"Shrijay Satam "},
-                                        {code:"20", name:"Tiziano Quintarelli"},
-                                        {code:"21", name:"Vincent Vonk "},
-                                        {code:"22", name:"Marcel Lipman"},
-                                        {code:"23", name:"Manjunath Keshava"},
-                                        {code:"24", name:"Tim Hogenboom"},
-                                        {code:"25", name:"Felix Timmerman"}
-
+                                        {code:1, name:"Michael Matthijsen"},
+                                        {code:2, name:"Jolanda Phillipson"},
+                                        {code:3, name:"Romina Spiess"},
+                                        {code:4, name:"Lisette Klok "},
+                                        {code:5, name:"Nicolas Castellon"},
+                                        {code:6, name:"Marnix de Bruin"},
+                                        {code:7, name:"Ronny Kooi"},
+                                        {code:8, name:"Jeroen Van Olderen "},
+                                        {code:9, name:"Mark Drost "},
+                                        {code:10, name:"Adjai Narain"},
+                                        {code:11, name:"Renk Stienstra"},
+                                        {code:12, name:"Tiemo Potze "},
+                                        {code:13, name:"Ana Paula Waaijenberg"},
+                                        {code:15, name:"Pim Waaijenberg"},
+                                        {code:17, name:"Idris Khan"},
+                                        {code:18, name:"Jamie de Jong"},
+                                        {code:19, name:"Shrijay Satam "},
+                                        {code:20, name:"Tiziano Quintarelli"},
+                                        {code:21, name:"Vincent Vonk "},
+                                        {code:22, name:"Marcel Lipman"},
+                                        {code:23, name:"Manjunath Keshava"},
+                                        {code:24, name:"Tim Hogenboom"},
+                                        {code:25, name:"Felix Timmerman"}
                                     ];
                                 break;
                             case 'locations':
@@ -81,7 +80,8 @@
                                 ];
                                 break;
                             case 'sectors':
-                                data =[  {code:1, name:"Banking"}
+                                data =[  
+                                    {code:1, name:"Banking"}
                                     ,{code:2, name:"Insurances"}
                                     ,{code:3, name:"Government"}
                                     ,{code:4, name:"Health"}

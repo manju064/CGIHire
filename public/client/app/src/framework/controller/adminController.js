@@ -45,25 +45,34 @@
                     candidateService.getFormatedData().then( (data) => {
                         console.log("getFormatedData data = " + JSON.stringify(data));
                         angular.extend($scope.exportData, data);
+
                     }, (err) => {
                             console.log('getFormatedData err ' + JSON.stringify(err));
                     });
                 }
                
+
+
                 $scope.getExportData();
-                $scope.reportHeader = [ "firstName", "lastName", "gender","emailId", "phoneNumber", "highestQualification", 
-                                        "qualificationDate",  "role", "linkedInUrl", "preferredLocation",
+                $scope.reportHeader = [ "firstName", "lastName", "languages","emailId", "phoneNumber", "highestQualification", 
+                                        "qualificationDate",  'currentRole',"role", "certification","certificationName"
+                                        ,"potential", "linkedInUrl", "preferredLocation",
                                          "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment"];
 
                  $scope.reportHeaderText = [ $translate.instant('First_Name')
                                         ,$translate.instant('Last_Name')
-                                        ,$translate.instant('Gender')
+                                        ,$translate.instant('languages')
                                         ,$translate.instant('Email_Address')
                                         ,$translate.instant('Phone_Number')
                                         ,$translate.instant('Highest_Qualification')
                                         ,$translate.instant('Graduation_Date')
+                                        ,$translate.instant('CurrentRole')
                                         ,$translate.instant('role')
+                                        ,$translate.instant('certification')
+                                        ,$translate.instant('Certification_Name_Hint')
+                                        ,$translate.instant('potential')
                                         ,$translate.instant('LinkedIn_URL')
+                                        // ,$translate.instant('skills')
                                         ,$translate.instant('preferredLocation')
                                         ,$translate.instant('subscribeToNewsLetter')
                                         ,$translate.instant('terms') //privacyDisclaimer

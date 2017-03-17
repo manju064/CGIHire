@@ -99,6 +99,8 @@ exports.remove = function(req, res) {
 };
 
 exports.getFormatedData = function(req, res){
+    //console.log('getFormatedData started');
+
     Candidate.aggregate(
              [ 
                 { 
@@ -113,24 +115,30 @@ exports.getFormatedData = function(req, res){
                     $lookup: { from: "sectorsLookup",  localField: "sectorId",
                                 foreignField: "code", as: "sectorMap"}
                 },
-                 { 
+                { 
                     $lookup: { from: "cgiContactsLookup",  localField: "cgiContactId",
                                 foreignField: "code", as: "cgiContactMap"}
                 },
+                
                 { $unwind: "$locationMap"},
                 { $unwind: "$roleMap"},
                 { $unwind: "$sectorMap"},
                 { $unwind: "$cgiContactMap"},
-
                 { $project: {  "firstName":1,
                                "lastName":2,
                                "emailId":3,
+                               "languages":{ $ifNull: [ "$languages", "" ] },
                                "phoneNumber":{ $ifNull: [ "$phoneNumber", "" ] },
                                "highestQualification":{ $ifNull: [ "$highestQualification", "" ] },
                                "qualificationDate":{ $ifNull: [ "$qualificationDate", "" ] },
                                "linkedInUrl":{ $ifNull: [ "$linkedInUrl", "" ] },
-                               "preferredLocation": { $ifNull: [ "$locationMap.name", "" ] },
+                               "certification":{ $cond: [ { $eq: [ "$certification", true ] }, 'Yes', 'No' ] },
+                               "certificationName":{ $ifNull: [ "$certificationName", "" ] },
+                               "currentRole":{ $ifNull: [ "$currentRole", "" ] },
                                "role": { $ifNull: [ "$roleMap.name", "" ] },
+                               "skills":{ $ifNull: [ "$skills", [] ] },
+                               "potential":{ $ifNull: [ "$potential", "" ] },
+                               "preferredLocation": { $ifNull: [ "$locationMap.name", "" ] },
                                "sector":{ $ifNull: [ "$sectorMap.name", "" ] },
 							   "cgiContact":"$cgiContactMap.name",
 							   "privacyDisclaimer":{ $cond: [ { $eq: [ "$privacyDisclaimer", true ] }, 'Yes', 'No' ] },
