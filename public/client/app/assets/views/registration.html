@@ -19,7 +19,9 @@
 				<label for="KnownLanguages" class="control-label" translate="KnownLanguages"></label>
 				<div>
 					<div class="col-xs-5" ng-repeat="item in Languages">
-						<checkbox ng-model="item.selected" ng-true-value="true" ng-false-value="false"
+						<checkbox ng-model="item.selected"
+								ng-true-value="true" 
+								ng-false-value="false"
 								indeterminate="false"></checkbox>
 						<span ng-bind="item.label"></span>
 					</div>

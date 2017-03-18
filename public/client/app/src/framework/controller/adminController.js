@@ -59,7 +59,7 @@
                                         ,"potential", "linkedInUrl", "preferredLocation",
                                          "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment"];
 
-                 $scope.reportHeaderText = [ $translate.instant('First_Name')
+               $scope.reportHeaderText = [ $translate.instant('First_Name')
                                         ,$translate.instant('Last_Name')
                                         ,$translate.instant('languages')
                                         ,$translate.instant('Email_Address')
