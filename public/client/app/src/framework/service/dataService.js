@@ -251,9 +251,9 @@
                                 ];
                                 break;
                             case 'potentialOptions':
-                                data = [{code: "High", name:"High"}
-                                        ,{code: "Medium", name:"Medium"}
-                                        ,{code: "Low", name:"Low"}];
+                                data = [{code: "High", name:"1"}
+                                        ,{code: "Medium", name:"2"}
+                                        ,{code: "Low", name:"3"}];
                                 break;
                             case 'skills':
                                 data =[ 

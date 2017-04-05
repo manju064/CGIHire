@@ -30,7 +30,7 @@ exports.save = function(req, res) {
     newCandidate.comment = req.body.comment;
     newCandidate.preferredLocation = req.body.preferredLocation !=null && req.body.preferredLocation !=undefined ? 
                                      req.body.preferredLocation:2; 
-    newCandidate.roleId = req.body.roleId !=null && req.body.roleId !=undefined ? req.body.roleId:142; //Find better coding
+    newCandidate.roleInterested = req.body.roleInterested;
     newCandidate.sectorId = req.body.sectorId !=null && req.body.sectorId !=undefined ? req.body.sectorId:17;
     newCandidate.subscribeToNewsLetter = req.body.subscribeToNewsLetter;
     newCandidate.privacyDisclaimer = req.body.privacyDisclaimer;
@@ -108,10 +108,6 @@ exports.getFormatedData = function(req, res){
                                 foreignField: "code", as: "locationMap"},
                 },
                 { 
-                    $lookup: { from: "rolesLookup",  localField: "roleId",
-                                foreignField: "code", as: "roleMap"}
-                },
-                { 
                     $lookup: { from: "sectorsLookup",  localField: "sectorId",
                                 foreignField: "code", as: "sectorMap"}
                 },
@@ -121,7 +117,6 @@ exports.getFormatedData = function(req, res){
                 },
                 
                 { $unwind: "$locationMap"},
-                { $unwind: "$roleMap"},
                 { $unwind: "$sectorMap"},
                 { $unwind: "$cgiContactMap"},
                 { $project: {  "firstName":1,
@@ -135,7 +130,7 @@ exports.getFormatedData = function(req, res){
                                "certification":{ $cond: [ { $eq: [ "$certification", true ] }, 'Yes', 'No' ] },
                                "certificationName":{ $ifNull: [ "$certificationName", "" ] },
                                "currentRole":{ $ifNull: [ "$currentRole", "" ] },
-                               "role": { $ifNull: [ "$roleMap.name", "" ] },
+                               "role": { $ifNull: [ "$roleInterested", "" ] },
                                "skills":{ $ifNull: [ "$skills", [] ] },
                                "potential":{ $ifNull: [ "$potential", "" ] },
                                "preferredLocation": { $ifNull: [ "$locationMap.name", "" ] },

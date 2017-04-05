@@ -61,7 +61,7 @@
                 };    
 
                 $scope.Languages = [
-                        {label: 'English', selected: true},
+                        {label: 'English', selected: false},
                         {label: 'Dutch', selected: false},
                 ];
                 
@@ -96,11 +96,6 @@
                     // #endregion 
 
                     // #region sectors,
-                    dataService.get('roles').then( (data) => {
-                        angular.extend($scope.roles, data);
-                    }, (err) => {
-                            console.log('roles err ' + JSON.stringify(err));
-                    });
                     dataService.get('skills').then( (data) => {
                         angular.extend($scope.skills, data);
                     }, (err) => {
@@ -150,17 +145,7 @@
                         }
                     }
                 };
-
-                $scope.candidate.roleId = undefined;
-
-                $scope.formatRolesLabel = function(model) {
-                    console.log("model " + model);
-                    for (var i=0; i< $scope.roles.length; i++) {
-                        if (model === $scope.roles[i].code) {
-                            return $scope.roles[i].name;
-                        }
-                    }
-                }
+                
                 $scope.formatSkillLabel = function(model) {
                     console.log("model " + model);
                     for (var i=0; i< $scope.roles.length; i++) {

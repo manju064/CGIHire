@@ -87,9 +87,8 @@
                                         ,$translate.instant('skills')
                                         ,$translate.instant('certification')
                                         ,$translate.instant('Certification_Name_Hint')
-                                        ,$translate.instant('potential')
+                                        ,$translate.instant('Potential_Header')
                                         ,$translate.instant('LinkedIn_URL')
-                                        // ,$translate.instant('skills')
                                         ,$translate.instant('preferredLocation')
                                         ,$translate.instant('subscribeToNewsLetter')
                                         ,$translate.instant('terms') //privacyDisclaimer

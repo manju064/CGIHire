@@ -106,15 +106,6 @@
 
                 console.log("Candidate Details Controller candidate " + JSON.stringify($scope.candidate));
 
-                 $scope.formatRolesLabel = function(model) {
-                    console.log("model " + model);
-                    for (var i=0; i< $scope.roles.length; i++) {
-                        if (model === $scope.roles[i].code) {
-                            return $scope.roles[i].name;
-                        }
-                    }
-                 }
-               
                 var qfDate = ($scope.candidate.qualificationDate == null || $scope.candidate.qualificationDate == undefined)?
                                     new Date('2015-03-01T00:00:00Z') : $scope.candidate.qualificationDate;
 

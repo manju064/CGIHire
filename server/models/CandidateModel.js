@@ -15,7 +15,7 @@ var candidateSchema = new Schema(
         linkedInUrl:String,
         comment:String,
         preferredLocation:Number,
-        roleId:Number,
+        roleInterested:String,
         sectorId:Number,
         subscribeToNewsLetter:{ type: Boolean, default:false },
         privacyDisclaimer:{ type: Boolean, default:false },
