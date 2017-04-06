@@ -66,43 +66,50 @@
                 ];
                 
                 $scope.loadLookups = function(){
+                   
+                    $scope.potentialOptions = [ {code: "High", name: "1"},
+                                                {code: "Medium", name: "2"},
+                                                {code: "Low", name: "3"}
+                                            ];
                     // #region cgiContacts,
-                    dataService.get('potentialOptions').then( (data) => {
-                        angular.extend($scope.potentialOptions, data);
-                    }, (err) => {
-                            console.log('potentialOptions err ' + JSON.stringify(err));
-                    });
-                    dataService.get('cgiContacts').then( (data) => {
-                        angular.extend($scope.cgiContacts, data);
+                   
+                    dataService.get('cgiContacts').then( (result) => {
+                        angular.extend($scope.cgiContacts, result.data);
                     }, (err) => {
                             console.log('cgiContacts err ' + JSON.stringify(err));
                     });
                     // #endregion 
 
                     // #region locations,
-                    dataService.get('locations').then( (data) => {
-                        angular.extend($scope.locations, data);
+                    dataService.get('locations').then( (result) => {
+                        angular.extend($scope.locations, result.data);
                     }, (err) => {
                             console.log('locations err ' + JSON.stringify(err));
                     });
                     // #endregion 
 
                      // #region sectors,
-                    dataService.get('sectors').then( (data) => {
-                        angular.extend($scope.sectors, data);
+                    dataService.get('sectors').then( (result) => {
+                        angular.extend($scope.sectors, result.data);
                     }, (err) => {
                             console.log('sectors err ' + JSON.stringify(err));
                     });
                     // #endregion 
 
                     // #region sectors,
-                    dataService.get('skills').then( (data) => {
-                        angular.extend($scope.skills, data);
+                    dataService.get('roles').then( (result) => {
+                        angular.extend($scope.roles, result.data);
+                    }, (err) => {
+                            console.log('roles err ' + JSON.stringify(err));
+                    });
+                    dataService.get('skills').then( (result) => {
+                        angular.extend($scope.skills, result.data);
                     }, (err) => {
                             console.log('skills err ' + JSON.stringify(err));
                     });
                     // #endregion 
                 };
+
     
                 $scope.loadLookups();
 

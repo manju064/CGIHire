@@ -41,8 +41,8 @@
                                     + $filter('date')(new Date(), 'yyyyMMddHHmm') + '.csv';
 
                 $scope.skills =[];
-                dataService.get('skills').then( (data) => {
-                    angular.extend($scope.skills, data);
+                dataService.get('skills').then( (result) => {
+                    angular.extend($scope.skills, result.data);
                 }, (err) => {
                         console.log('skills err ' + JSON.stringify(err));
                 });            
@@ -73,7 +73,7 @@
                 $scope.reportHeader = [ "firstName", "lastName", "languages","emailId", "phoneNumber", "highestQualification", 
                                         "qualificationDate",  'currentRole',"role","skillsText","certification","certificationName"
                                         ,"potential", "linkedInUrl", "preferredLocation",
-                                         "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment"];
+                                         "subscribeToNewsLetter", "privacyDisclaimer", "sector", "cgiContact", "comment","event"];
 
                $scope.reportHeaderText = [ $translate.instant('First_Name')
                                         ,$translate.instant('Last_Name')
@@ -95,6 +95,7 @@
                                         ,$translate.instant('sector')
                                         ,$translate.instant('cgiContact')
                                         ,$translate.instant('comment')
+                                        ,$translate.instant('event')
                                         ];
 
                 // #region Grid,

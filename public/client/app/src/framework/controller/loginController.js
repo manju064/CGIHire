@@ -20,8 +20,9 @@
                 $scope.event = undefined;
 
                 // #region sectors,
-                dataService.get('events').then( (data) => {
-                    angular.extend($scope.events, data);
+                dataService.get('events').then( (result) => {
+                    console.log('events data ' + JSON.stringify(result.data));
+                    angular.extend($scope.events, result.data);
                 }, (err) => {
                         console.log('events err ' + JSON.stringify(err));
                 });

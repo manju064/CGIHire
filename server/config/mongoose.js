@@ -2,7 +2,8 @@ var mongoose = require('mongoose'),
     autoIncrement = require('mongoose-auto-increment'),
     candidateModel = require('../models/CandidateModel'),
     counterModel = require('../models/Counter'),
-    userModel = require('../models/UserModel');
+    userModel = require('../models/UserModel')
+    require('../models/UserModel');
     
 module.exports = function(config) {
   var db = mongoose.connection;

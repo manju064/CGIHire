@@ -115,10 +115,14 @@ exports.getFormatedData = function(req, res){
                     $lookup: { from: "cgiContactsLookup",  localField: "cgiContactId",
                                 foreignField: "code", as: "cgiContactMap"}
                 },
-                
+                { 
+                    $lookup: { from: "eventsLookup",  localField: "eventId",
+                                foreignField: "code", as: "eventsMap"}
+                },
                 { $unwind: "$locationMap"},
                 { $unwind: "$sectorMap"},
                 { $unwind: "$cgiContactMap"},
+                { $unwind: "$eventsMap"},
                 { $project: {  "firstName":1,
                                "lastName":2,
                                "emailId":3,
@@ -139,6 +143,7 @@ exports.getFormatedData = function(req, res){
 							   "privacyDisclaimer":{ $cond: [ { $eq: [ "$privacyDisclaimer", true ] }, 'Yes', 'No' ] },
                                "subscribeToNewsLetter":{ $ifNull: [ { $cond: [ { $eq: [ "$subscribeToNewsLetter", true ] }, 'Yes', 'No' ] }, "No" ] },	
                                "comment":{ $ifNull: [ "$comment", "" ] },
+                               "event":{ $ifNull: [ "$eventsMap.name", "" ] },
                                 _id:0 
                             } 
                 }

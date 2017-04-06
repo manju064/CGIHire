@@ -41,31 +41,30 @@ var User = mongoose.model('User', userSchema, collectionName);
 
 function createDefaultUsers() {
   console.log('Create default user started');
+
   var userAccounts = [ 
-                        {code:"1",firstName:"Michael",lastName:"Matthijsen",email:"michael.matthijsen@cgi.com",roles:['admin'],create:false},
-                        {code:"2",firstName:"Jolanda ",lastName:"Phillipson",email:"jolanda.phillipson@cgi.com",roles:['admin'],create:false},
-                        {code:"3",firstName:"Romina ",lastName:"Spiess",email:"romina.spiess@cgi.com",roles:['user'],create:false},
-                        {code:"4",firstName:"Lisette",lastName:"Klok ",email:"lisette.klok@cgi.com",roles:['user'],create:false},
-                        {code:"5",firstName:"Nicolas",lastName:"Castellon",email:"nicolas.castellon@cgi.com",roles:['user'],create:false},
-                        {code:"6",firstName:"Marnix de",lastName:"Bruin",email:"marnix.de.bruin@cgi.com",roles:['user'],create:false},
-                        {code:"7",firstName:"Ronny",lastName:"Kooi",email:"ronny.kooi@cgi.com",roles:['user'],create:false},
-                        {code:"8",firstName:"Jeroen van",lastName:"Olderen",email:"jeroen.van.olderen@cgi.com",roles:['user'],create:false},
-                        {code:"9",firstName:"Mark",lastName:"Drost",email:"mark.drost@cgi.com",roles:['user'],create:false},
-                        {code:"10",firstName:"Adjai ",lastName:"Narain",email:"adjai.s.narain@cgi.com",roles:['user'],create:false},
-                        {code:"11",firstName:"Renk",lastName:"Stienstra",email:"renk.stienstra@cgi.com",roles:['user'],create:false},
-                        {code:"12",firstName:"Tiemo ",lastName:"Potze",email:"tiemo.potze@cgi.com",roles:['user'],create:false},
-                        {code:"13",firstName:"Ana Paula ",lastName:"Waaijenberg",email:"ana.paula.waaijenberg@cgi.com",roles:['user'],create:false},
-                        {code:"15",firstName:"Pim",lastName:"Waaijenberg",email:"pim.waaijenberg@cgi.com",roles:['user'],create:false},
-                        {code:"17",firstName:"Idris",lastName:"Khan",email:"idris.khan@cgi.com",roles:['user'],create:false},
-                        {code:"18",firstName:"Jamie de",lastName:"Jong",email:"jamie.de.jong@cgi.com",roles:['user'],create:false},
-                        {code:"19",firstName:"Shrijay ",lastName:"Satam",email:"shrijay.satam@cgi.com",roles:['user'],create:false},
-                        {code:"20",firstName:"Tiziano ",lastName:"Quintarelli",email:"tiziano.quintarelli@cgi.com",roles:['user'],create:false},
-                        {code:"21",firstName:"Vincent ",lastName:"Vonk",email:"Vincent.vonk@cgi.com",roles:['user'],create:false},
-                        {code:"22",firstName:"Marcel",lastName:"Lipman",email:"Marcel.lipman@cgi.com",roles:['user'],create:false},
-                        {code:"23",firstName:"Manjunath",lastName:"Keshava",email:"manjunath.keshava@cgi.com",roles:['admin'],create:false},
-                        {code:"24",firstName:"Tim",lastName:"Hogenboom",email:"tim.hogenboom@cgi.com",roles:['admin'],create:false},
-                        {code:"25",firstName:"Felix",lastName:"Timmerman",email:"felix.timmerman@cgi.com",roles:['admin'],create:false},
-                   ];
+                  {code:"1",firstName:"Jolanda ",lastName:"Phillipson",email:"jolanda.phillipson@cgi.com",roles:['admin'],create:true},
+                  {code:"2",firstName:"Manjunath",lastName:"Keshava",email:"manjunath.keshava@cgi.com",roles:['admin'],create:true},
+                  {code:"3",firstName:"Tim",lastName:"Hogenboom",email:"tim.hogenboom@cgi.com",roles:['admin'],create:true},
+                  {code:"4",firstName:"Felix",lastName:"Timmerman",email:"felix.timmerman@cgi.com",roles:['admin'],create:true},
+                  {code:"5",firstName:"Chris de",lastName:"Jong",email:"chris.de.jong@cgi.com",roles:['admin'],create:true},
+
+                  {code:"6",firstName:"Romina ",lastName:"Spiess",email:"romina.spiess@cgi.com",roles:['user'],create:false},
+                  {code:"7",firstName:"Patrick",lastName:"Smit",email:"pat.smit@cgi.com",roles:['user'],create:true},
+                  {code:"8",firstName:"Benjamin",lastName:"Fresco",email:"benjamin.fresco@cgi.com",roles:['user'],create:true},
+
+
+                  {code:"9",firstName:"stefan van der",lastName:"Wal",email:"stefan.van.der.wal@cgi.com",roles:['user'],create:true},
+                  {code:"10",firstName:"Satish",lastName:"Bansidhar",email:"satish.bansidhar@cgi.com",roles:['user'],create:true},
+                  {code:"11",firstName:"Jarno",lastName:"Houkes",email:"jarno.houkes@cgi.com",roles:['user'],create:true},
+                  {code:"12",firstName:"Idris",lastName:"Khan",email:"idris.khan@cgi.com",roles:['user'],create:true},
+
+                  {code:"13",firstName:"Alexander",lastName:"Chatzizacharias",email:"alexander.chatzizacharias@cgi.com",roles:['user'],create:true},
+                  {code:"14",firstName:"Joep",lastName:"Kokkeler",email:"joep.kokkeler@cgi.com",roles:['user'],create:true},
+                  {code:"15",firstName:"Erwin",lastName:"Hoeckx",email:"erwin.hoeckx@cgi.com",roles:['user'],create:true},
+                  {code:"16",firstName:"Jan wouter",lastName:"Broekhuijsen",email:"jan.wouter.broekhuijsen@cgi.com",roles:['user'],create:true},
+                  {code:"17",firstName:"Remco",lastName:"Siemonsma",email:"remco.siemonsma@cgi.com",roles:['user'],create:true}
+              ];
 
      userAccounts.forEach(function(item){
           if(item.create){
@@ -74,7 +73,7 @@ function createDefaultUsers() {
                         var salt, hash;
                         salt = encrypt.createSalt();
                         var pwd = item.firstName.substring(0, 3) + item.lastName.substring(0, 2) + '165';
-                        //console.log('user name ' + item.email + ' pwd ' + pwd);
+                        console.log('user name ' + item.email + ' pwd ' + pwd);
                         hash = encrypt.hashPwd(salt, pwd);
                         User.create({
                                     firstName:item.firstName,
