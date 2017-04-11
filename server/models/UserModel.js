@@ -63,7 +63,10 @@ function createDefaultUsers() {
                   {code:"14",firstName:"Joep",lastName:"Kokkeler",email:"joep.kokkeler@cgi.com",roles:['user'],create:true},
                   {code:"15",firstName:"Erwin",lastName:"Hoeckx",email:"erwin.hoeckx@cgi.com",roles:['user'],create:true},
                   {code:"16",firstName:"Jan wouter",lastName:"Broekhuijsen",email:"jan.wouter.broekhuijsen@cgi.com",roles:['user'],create:true},
-                  {code:"17",firstName:"Remco",lastName:"Siemonsma",email:"remco.siemonsma@cgi.com",roles:['user'],create:true}
+                  {code:"17",firstName:"Remco",lastName:"Siemonsma",email:"remco.siemonsma@cgi.com",roles:['user'],create:true},
+
+                    {code:"18",firstName:"Gerard ",lastName:"Mulder",email:"g.mulder@cgi.com",roles:['user'],create:true},
+
               ];
 
      userAccounts.forEach(function(item){
