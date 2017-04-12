@@ -53,7 +53,6 @@ function createDefaultUsers() {
                   {code:"7",firstName:"Patrick",lastName:"Smit",email:"pat.smit@cgi.com",roles:['user'],create:true},
                   {code:"8",firstName:"Benjamin",lastName:"Fresco",email:"benjamin.fresco@cgi.com",roles:['user'],create:true},
 
-
                   {code:"9",firstName:"stefan van der",lastName:"Wal",email:"stefan.van.der.wal@cgi.com",roles:['user'],create:true},
                   {code:"10",firstName:"Satish",lastName:"Bansidhar",email:"satish.bansidhar@cgi.com",roles:['user'],create:true},
                   {code:"11",firstName:"Jarno",lastName:"Houkes",email:"jarno.houkes@cgi.com",roles:['user'],create:true},
@@ -64,9 +63,7 @@ function createDefaultUsers() {
                   {code:"15",firstName:"Erwin",lastName:"Hoeckx",email:"erwin.hoeckx@cgi.com",roles:['user'],create:true},
                   {code:"16",firstName:"Jan wouter",lastName:"Broekhuijsen",email:"jan.wouter.broekhuijsen@cgi.com",roles:['user'],create:true},
                   {code:"17",firstName:"Remco",lastName:"Siemonsma",email:"remco.siemonsma@cgi.com",roles:['user'],create:true},
-
-                    {code:"18",firstName:"Gerard ",lastName:"Mulder",email:"g.mulder@cgi.com",roles:['user'],create:true},
-
+                  {code:"18",firstName:"Gerard ",lastName:"Mulder",email:"g.mulder@cgi.com",roles:['user'],create:true}
               ];
 
      userAccounts.forEach(function(item){
