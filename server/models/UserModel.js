@@ -72,8 +72,18 @@ function createDefaultUsers() {
       {code:"22",firstName:"Joeri",lastName:"Taelman",email:"joeri.taelman@cgi.com",roles:['user'],create:true},
       {code:"23",firstName:"Siemonsma",lastName:"Remco",email:"Remco.Siemonsma@cgi.com",roles:['user'],create:true},
       {code:"24",firstName:"Mandy",lastName:"Sepers",email:"Mandy.Sepers@cgi.com",roles:['user'],create:true},
-      {code:"25",firstName:"Joeri",lastName:"Taelman",email:"Joeri.Taelman@cgi.com",roles:['user'],create:true}
+      {code:"25",firstName:"Joeri",lastName:"Taelman",email:"Joeri.Taelman@cgi.com",roles:['user'],create:true},
 
+
+      {code:"26",firstName:"Luc",lastName:"Kuiphuis",email:"luc.kuiphuis@cgi.com",roles:['user'],create:true},
+      {code:"27",firstName:"Taco",lastName:"Hoekstra",email:"taco.hoekstra@cgi.com",roles:['user'],create:true},
+      {code:"28",firstName:"Rony",lastName:"Kooi",email:"ronny.kooi@cgi.com",roles:['user'],create:true},
+      {code:"29",firstName:"Frank",lastName:"van Aavezaath",email:"frank.van.avezaath@cgi.com",roles:['user'],create:true},
+      {code:"30",firstName:"Jouke",lastName:"de Vries",email:"jouke.de.vries@cgi.com",roles:['user'],create:true},
+      {code:"31",firstName:"Meindert",lastName:"Jilderda",email:"meindert.jilderda@cgi.com",roles:['user'],create:true},
+      {code:"32",firstName:"Jan",lastName:"van den Hof",email:"jan.van.den.hof@cgi.com>; ",roles:['user'],create:true},
+      {code:"33",firstName:"Tiemo",lastName:"Potze",email:"tiemo.potze@cgi.com",roles:['user'],create:true},
+      {code:"34",firstName:"Ronald",lastName:"ten Have",email:"ronald.ten.have@cgi.com",roles:['user'],create:true}
               ];
 
      userAccounts.forEach(function(item){
